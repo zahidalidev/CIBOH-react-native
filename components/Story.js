@@ -104,7 +104,7 @@ export default class Story extends Component{
 
 const styles = StyleSheet.create({
     horizontalContainer: {
-        flex: 1,
+        // flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         height: 80,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         margin: 4,
     },
     container: {
-        flex: 1,
+        // flex: 1,
         flexDirection: 'column',
     },
     flatList: {

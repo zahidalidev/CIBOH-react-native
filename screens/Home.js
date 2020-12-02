@@ -5,13 +5,18 @@ import Constants from 'expo-constants'
 
 
 import Story from '../components/Story';
+import HomeSlider from '../components/HomeSlider';
 
 export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
         <StatusBar style="auto" backgroundColor="white" />
+        <Story />
         <ScrollView style={styles.scrollView}>
-            <Story />
+           
+            <View style={styles.belowStoryContainer} >
+                <HomeSlider />
+            </View>
         </ScrollView>
     </SafeAreaView>
   );
@@ -23,10 +28,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: Constants.statusBarHeight + 10
+    marginTop: Constants.statusBarHeight + 10,
+    flexDirection: 'column'
   },
   scrollView: {
-    // backgroundColor: 'pink',
-    // marginHorizontal: 20,
-  },
+    // flex: 15,
+    // justifyContent: 'center',
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
+    },
+    belowStoryContainer: {
+        
+    }
 });
