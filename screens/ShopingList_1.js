@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font'
@@ -14,63 +14,89 @@ import ShopingList_1Card from '../components/ShopingList_1Card';
 const screenWidth = Dimensions.get('window').width;
 
 
-const shopingData = [
-    {   
-        id: 1,
-        picture: feedImg3,
-        heading: 'Fresh Asparagus',
-    },  
-    {   
-        id: 2,
-        picture: feedImg3,
-        heading: 'Banana (5 items)',
-    },  
-    {   
-        id: 3,
-        picture: feedImg1,
-        heading: 'noodles',
-    },  
-    {   
-        id: 4,
-        picture: feedImg3,
-        heading: 'Frech Toast With Omlette',
-    },  
-    {   
-        id: 5,
-        picture: feedImg2,
-        heading: 'Frech Toast With Omlette',
-    },  
-    {   
-        id: 6,
-        picture: feedImg4,
-        heading: 'Frech Toast With Omlette',
-    },  
-    {   
-        id: 7,
-        picture: feedImg4,
-        heading: 'Frech Toast With Omlette',
-    },  
-    {   
-        id: 8,
-        picture: feedImg4,
-        heading: 'Frech Toast With Omlette',
-    },  
-]
 
-function ShopingList_1(props) {
-    let [fontsLoaded] = useFonts({
-    'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
-    'AvianoFlareRegular': require('../assets/fonts/AvianoFlareRegular.otf'),
-    'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
-    });
-
-
-    if(!fontsLoaded) {
-        return null 
+class ShopingList_1 extends Component{
+  
+    state = {
+        shopingData: [
+            {   
+                id: 1,
+                picture: feedImg3,
+                heading: 'Fresh Asparagus',
+                quantity: 0,
+            },  
+            {   
+                id: 2,
+                picture: feedImg3,
+                heading: 'Banana (5 items)',
+                quantity: 0,
+            },  
+            {   
+                id: 3,
+                picture: feedImg1,
+                heading: 'noodles',
+                quantity: 0,
+            },  
+            {   
+                id: 4,
+                picture: feedImg3,
+                heading: 'Frech Toast With Omlette',
+                quantity: 0,
+            },  
+            {   
+                id: 5,
+                picture: feedImg2,
+                heading: 'Frech Toast With Omlette',
+                quantity: 0,
+            },  
+            {   
+                id: 6,
+                picture: feedImg4,
+                heading: 'Frech Toast With Omlette',
+                quantity: 0,
+            },  
+            {   
+                id: 7,
+                picture: feedImg4,
+                heading: 'Frech Toast With Omlette',
+                quantity: 0,
+            },  
+            {   
+                id: 8,
+                picture: feedImg4,
+                heading: 'Frech Toast With Omlette',
+                quantity: 0,
+            },  
+        ]
     }
 
-    return (
-        <SafeAreaView  style={styles.container}>
+    handleIncrement = (id) => {
+        const shopingData = [...this.state.shopingData]
+        shopingData.map(data => {
+            if(id === data.id){
+                data.quantity = data.quantity + 1
+                console.log(id)
+            }
+        })
+        this.setState({shopingData})
+    }
+
+    handleDecrement = (id) => {
+        const shopingData = [...this.state.shopingData]
+        shopingData.map(data => {
+            if(id === data.id){
+                if(data.quantity != 0){
+                    data.quantity = data.quantity - 1
+                }
+                
+            }
+        })
+        this.setState({shopingData})
+    }
+
+    render(){
+        return (
+            <SafeAreaView  style={styles.container}>
                 <StatusBar style="auto" backgroundColor="white" />
                 <ScrollView style={styles.scrollView}>
                     <View style={styles.shopingContainer}>
@@ -81,9 +107,9 @@ function ShopingList_1(props) {
 
                         <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                             <FlatList
-                                data={shopingData}
+                                data={this.state.shopingData}
                                 keyExtractor={item => item.id}     //has to be unique   
-                                renderItem={({item, index}) => <ShopingList_1Card screenWidth={screenWidth} id={index} heading={item.heading} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                                renderItem={({item, index}) => <ShopingList_1Card onHandleDecrement={this.handleDecrement} onHandleIncrement={this.handleIncrement} screenWidth={screenWidth} id={item.id} quantity={item.quantity} heading={item.heading} picture={item.picture} />} //method to render the data in the way you want using styling u need
                                 horizontal={false}
                                 numColumns={1}
                             />
@@ -91,7 +117,9 @@ function ShopingList_1(props) {
                     </View>
                 </ScrollView>
             </SafeAreaView>
-    );
+        );
+    }
+
 }
 
 const styles = StyleSheet.create({

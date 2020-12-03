@@ -28,8 +28,8 @@ export default function App() {
       {/* <Home /> */}
       {/* <Feed /> */}
       {/* <ShopingList /> */}
-      {/* <ShopingList_1 /> */}
-      <Search />
+      <ShopingList_1 />
+      {/* <Search /> */}
     </View>
   );
 }
