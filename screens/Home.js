@@ -18,6 +18,7 @@ import feedImg1 from "../assets/images/Rectangle8.png"
 import feedImg2 from "../assets/images/Rectangle9.png"
 import feedImg3 from "../assets/images/Rectangle18.png"
 import feedImg4 from "../assets/images/Rectangle19.png"
+import feedImg5 from "../assets/images/Rectangle20.png"
 
 
 const screenWidth = Dimensions.get('window').width;
@@ -269,8 +270,6 @@ export default function Home() {
                                     onScroll={onScroll}
                                 >
                                 </FlatList>
-
-
                             </View>
                             <View style={styles.dotsPgae} >
                                 <Pagination
@@ -283,6 +282,40 @@ export default function Home() {
                             </View>
                         </View>
                     </View>
+
+
+                    {/* Lets Talk */}
+
+                    <View style={styles.talkContainer}>
+                        <View style={{flexDirection: 'row'}} >
+                            <Text style={[styles.talkTitle, {fontFamily: 'ZermattFirst',}]} >
+                                Lets Talk
+                            </Text>
+                        </View>
+                        
+                        <View style={styles.feedCards3} >
+                            <View>
+                                <Image source={feedImg5} style={styles.talkBackground} />
+                            </View>
+                            <View style={{flexDirection: 'column', left: 15, marginTop: 20}}>
+                                <Text style={{fontFamily: 'ZermattFirst', fontSize:18}} >Lorem ipsum dolor sit amet</Text>
+                                
+                                <View style={{flexDirection: 'row', marginTop: 10}}>
+                                    <MaterialCommunityIcons style={{opacity:0.6}} name='check-circle-outline' color={colors.primary} size={20} />
+                                    <Text style={{color: colors.primary, margin: 3, opacity:0.6}} >Yes</Text>
+                                </View>
+                                <View style={{flexDirection: 'row'}}>
+                                    <MaterialCommunityIcons style={{opacity:0.4}} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
+                                    <Text style={{color: 'grey', margin: 3, opacity:0.4}} >No</Text>
+                                </View>
+                                <View style={{flexDirection: 'row'}}>
+                                    <MaterialCommunityIcons style={{opacity:0.4}} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
+                                    <Text style={{color: 'grey', margin: 3, opacity:0.4}} >Maybe</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+
 
                 </View>
             </ScrollView>
@@ -359,6 +392,14 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'flex-start'
     },
+    talkContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        marginTop: -10,
+        marginBottom:30
+        // justifyContent: 'center',
+        // alignItems: 'flex-start'
+    },
     feedTitle: {
         fontSize: 27,
         fontWeight: '600',
@@ -367,8 +408,22 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         marginBottom: 10
     },
+    talkTitle: {
+        fontSize: 27,
+        fontWeight: '600',
+        lineHeight: 27,
+        letterSpacing: -0.5,
+        textAlign: 'left',
+        marginBottom: 1
+    },
     feedCards: {
         flexDirection: 'column',
+    },
+    feedCards3: {
+        // flex: 1,
+        flexDirection: 'row',
+        marginTop: 20
+
     },
     feedCards2: {
         flexDirection: 'column',
@@ -379,6 +434,9 @@ const styles = StyleSheet.create({
         width:(screenWidth/2) - 30, height: 110, paddingLeft: 110,
         paddingHorizontal: 15,
         marginTop: 20
+    },
+    talkBackground: {
+        width:(screenWidth/2) - 80, height: 140, paddingLeft: 110,
     },
 
     feedLikes: {
