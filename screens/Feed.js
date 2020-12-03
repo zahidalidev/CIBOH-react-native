@@ -249,6 +249,8 @@ function Feed(props) {
         'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
         });
 
+    const [currentCompoent, setCurrentCompoent] = useState('feedC')
+
     const [feedBarBack, setFeedBarBack] = useState(colors.primary);
     const [feedBarFont, setFeedBarFont] = useState(colors.feedBar);
 
@@ -257,17 +259,6 @@ function Feed(props) {
 
     const [favBarBack, setFavBarBack] = useState(colors.feedBar);
     const [favBarFont, setFavBarFont] = useState(colors.primary);
-
-    const handleTutorial = () => {
-        setFeedBarBack(colors.feedBar)
-        setFeedBarFont(colors.primary)
-
-        setTutoBarBack(colors.primary)
-        setTutoBarFont(colors.feedBar)
-
-        setFavBarBack(colors.feedBar)
-        setFavBarFont(colors.primary)
-    }
 
     const handleFeed = () => {
         setFeedBarBack(colors.primary)
@@ -278,6 +269,21 @@ function Feed(props) {
 
         setFavBarBack(colors.feedBar)
         setFavBarFont(colors.primary)
+
+        setCurrentCompoent('feedC')
+    }
+
+    const handleTutorial = () => {
+        setFeedBarBack(colors.feedBar)
+        setFeedBarFont(colors.primary)
+
+        setTutoBarBack(colors.primary)
+        setTutoBarFont(colors.feedBar)
+
+        setFavBarBack(colors.feedBar)
+        setFavBarFont(colors.primary)
+
+        setCurrentCompoent('tutFeed')
     }
 
     const handleFav = () => {
@@ -289,6 +295,8 @@ function Feed(props) {
 
         setFavBarBack(colors.primary)
         setFavBarFont(colors.feedBar)
+
+        setCurrentCompoent('favFeed')
     }
     
     if(!fontsLoaded) {
@@ -347,7 +355,7 @@ function Feed(props) {
                     </View>
 
                     {/* feed Component */}
-                    {/* <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {currentCompoent === 'feedC' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                         <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -200, left:5, alignItems: 'center', justifyContent: 'center',maxWidth:195, maxHeight:195, minHeight:195, borderWidth: 2,borderColor: colors.primary}} >
                             <MaterialCommunityIcons color={colors.primary} size={80} name="plus" />
                             <Text style={{color: colors.primary}}>Add Photos</Text>
@@ -360,10 +368,10 @@ function Feed(props) {
                             horizontal={false}
                             numColumns={2}
                         />
-                    </ScrollView> */}
+                    </ScrollView> : null}
 
                     {/* Tutorials */}
-                    {/* <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {currentCompoent === 'tutFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                         
                         <FlatList
                             data={toturailsData}
@@ -372,10 +380,10 @@ function Feed(props) {
                             horizontal={false}
                             numColumns={1}
                         />
-                    </ScrollView> */}
+                    </ScrollView> : null}
 
                     {/* Favourites */}
-                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                         
                         <FlatList
                             data={favRecipeData}
@@ -384,7 +392,7 @@ function Feed(props) {
                             horizontal={false}
                             numColumns={2}
                         />
-                    </ScrollView>
+                    </ScrollView> : null}
 
                     
                     
