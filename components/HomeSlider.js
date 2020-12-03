@@ -106,10 +106,10 @@ const styles = StyleSheet.create({
     
   },
   sliderHeading: {
-    fontSize: 22,
+    fontSize: 27,
     fontWeight: '600',
     lineHeight: 22,
-    letterSpacing: 0.02,
+    letterSpacing: -0.5,
     textAlign: 'left',
     marginBottom: 10
   },
