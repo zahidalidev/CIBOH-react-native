@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Feed from './screens/Feed';
 import Home from './screens/Home';
 import ShopingList from './screens/ShopingList';
+import ShopingList_1 from './screens/ShopingList_1';
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
       <StatusBar style="auto" />
       {/* <Home /> */}
       {/* <Feed /> */}
-      <ShopingList />
+      {/* <ShopingList /> */}
+      <ShopingList_1 />
     </View>
   );
 }
