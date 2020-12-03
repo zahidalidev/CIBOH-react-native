@@ -11,7 +11,7 @@ function ListCard({screenWidth, picture, heading, subHeadding, hashTags, time, s
                 <Image source={picture} style={{width: screenWidth/3-15, height: screenWidth/3-15}} />
             </View>
             <View style={{flexDirection: 'column', left: 15, marginTop: 20}}>
-                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:13, maxWidth: 250}} >{heading}</Text>
+                <Text style={{lineHeight:25, fontFamily: 'AvianoFlareRegular', fontSize:13, maxWidth: 250}} >{heading}</Text>
                 <Text style={{fontFamily: 'sofiaprolight', fontSize:14, color: colors.primary, marginTop:5}} >{hashTags}</Text>
                 
                 <View style={{flexDirection: 'row', marginTop: 15, justifyContent: 'flex-end', right: 15}}>
