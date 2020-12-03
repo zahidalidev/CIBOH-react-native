@@ -8,8 +8,14 @@ import {MaterialCommunityIcons} from "@expo/vector-icons"
 import colors from '../config/colors';
 import img from '../assets/images/Rectangle2991.png'
 import img2 from '../assets/images/Rectangle99.png'
+import feedImg1 from "../assets/images/Rectangle8.png"
+import feedImg2 from "../assets/images/Rectangle9.png"
+import feedImg3 from "../assets/images/Rectangle18.png"
+import feedImg4 from "../assets/images/Rectangle19.png"
+
 import FeedCard from '../components/FeedCard';
 import ListCard from '../components/ListCard';
+import FavCard from '../components/FavCard';
 
 const screenWidth = Dimensions.get('window').width;
 const { width } = Dimensions.get('window');
@@ -160,6 +166,80 @@ const toturailsData = [
     },  
 ]
 
+const favRecipeData = [
+    {   
+        id: 1,
+        picture: feedImg3,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 2,
+        picture: feedImg4,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 3,
+        picture: feedImg1,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 4,
+        picture: feedImg3,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 5,
+        picture: feedImg2,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 6,
+        picture: feedImg4,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 7,
+        picture: feedImg4,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+    {   
+        id: 8,
+        picture: feedImg4,
+        likes: '100k',
+        time: '40mins',
+        description: 'Tasty Strawberry icecream',
+        author: 'Christy Obioha'
+
+    },  
+]
 
 
 function Feed(props) {
@@ -283,7 +363,7 @@ function Feed(props) {
                     </ScrollView> */}
 
                     {/* Tutorials */}
-                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {/* <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                         
                         <FlatList
                             data={toturailsData}
@@ -291,6 +371,18 @@ function Feed(props) {
                             renderItem={({item, index}) => <ListCard screenWidth={screenWidth} picture={item.picture} heading={item.heading} hashTags={item.hashTags} time={item.time} serve={item.serve} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={1}
+                        />
+                    </ScrollView> */}
+
+                    {/* Favourites */}
+                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                        
+                        <FlatList
+                            data={favRecipeData}
+                            keyExtractor={item => item.id}     //has to be unique   
+                            renderItem={({item, index}) => <FavCard author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            horizontal={false}
+                            numColumns={2}
                         />
                     </ScrollView>
 
