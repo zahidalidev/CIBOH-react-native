@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
 import { useFonts } from 'expo-font'
 import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import colors from '../config/colors';
+import img from '../assets/images/Rectangle2991.png'
+import FeedCard from '../components/FeedCard';
 
 const screenWidth = Dimensions.get('window').width;
 const { width } = Dimensions.get('window');
@@ -13,6 +15,83 @@ const height = width * 0.45
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const CAROUSEL_VERTICAL_OUTPUT = 30;
 const CAROUSEL_ITEM_WIDTH = SCREEN_WIDTH - CAROUSEL_VERTICAL_OUTPUT;
+
+const feeds = [
+    {   
+        id: 1,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 2,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 3,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 4,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 5,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 6,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 7,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+    {   
+        id: 8,
+        picture: img,
+        likes: '100k',
+        hashTags: '#salad, #starwberry',
+        heading: 'Fruit Saladd!!!',
+        subHeading: 'yummmm'
+
+    },  
+]
+
+
 
 function Feed(props) {
     let [fontsLoaded] = useFonts({
@@ -66,6 +145,8 @@ function Feed(props) {
     if(!fontsLoaded) {
         return null 
     }
+
+    let dummy = [1]
     return (
         <SafeAreaView  style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
@@ -114,6 +195,21 @@ function Feed(props) {
                             <MaterialCommunityIcons onPress={() => handleFav()} color={favBarFont} name="heart-outline" size={20} />
                             <Text onPress={() => handleFav()} style={{fontFamily: 'AvianoFlareRegular', fontSize: 12, color:favBarFont, paddingLeft:3}}>Favorites</Text>
                         </View>
+                    </View>
+
+                    {/* feed Component */}
+                    <View style={{flexDirection:'row', marginLeft: -5}} >
+                        {/* {feeds.map((feed, i) => (
+                            
+                            <FeedCard subHeading={feed.subHeading} heading={feed.heading} hashTags={feed.hashTags} likes={feed.likes} picture={feed.picture} />
+                        ))} */}
+                        <FlatList
+                            data={feeds}
+                            keyExtractor={item => item.id}     //has to be unique   
+                            renderItem={({item, index}) => <FeedCard id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            horizontal={false}
+                            numColumns={2}
+                        />
                     </View>
 
             </ScrollView>
