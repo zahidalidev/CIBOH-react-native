@@ -7,7 +7,7 @@ import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
 
 const screenWidth = Dimensions.get('window').width;
 
-function FeedCard({hashTags, likes, picture, heading, subHeading, key}) {
+function FeedCard({hashTags, likes, picture, heading, subHeading, id, lastChild}) {
 
     let [fontsLoaded] = useFonts({
         'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
@@ -19,8 +19,9 @@ function FeedCard({hashTags, likes, picture, heading, subHeading, key}) {
         return null 
         }
 
+        console.log(id)
     return (            
-            <View key={id} style={{flexDirection:'row', marginLeft: 5, marginRight:5}} >
+            <View key={id} style={{marginTop: (id%2===0) ? 0 : 200, marginBottom: (id%2===0) ? 0 : (lastChild===(id+1) ? 0 : -200), flexDirection:'row', marginLeft: 5, marginRight:5}} >
                 <View style={styles.feedCards} >
                     {/* <View> */}
                         <ImageBackground source={picture} style={[styles.backgroundRecipt]} >
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     backgroundRecipt: {
         width:(screenWidth/2) - 10, height: (screenWidth) - 90, paddingLeft: 110,
         paddingHorizontal: 15,
-        marginTop: 20,
+        marginTop: 10,
     },
     feedLikes: {
         flexDirection: 'column',

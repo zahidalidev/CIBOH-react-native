@@ -198,19 +198,15 @@ function Feed(props) {
                     </View>
 
                     {/* feed Component */}
-                    <View style={{flexDirection:'row', marginLeft: -5}} >
-                        {/* {feeds.map((feed, i) => (
-                            
-                            <FeedCard subHeading={feed.subHeading} heading={feed.heading} hashTags={feed.hashTags} likes={feed.likes} picture={feed.picture} />
-                        ))} */}
+                    <ScrollView style={{flexDirection:'row', marginLeft: -5}} >
                         <FlatList
                             data={feeds}
                             keyExtractor={item => item.id}     //has to be unique   
-                            renderItem={({item, index}) => <FeedCard id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            renderItem={({item, index}) => <FeedCard lastChild={feeds.length}  id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={2}
                         />
-                    </View>
+                    </ScrollView>
 
             </ScrollView>
         </SafeAreaView>
