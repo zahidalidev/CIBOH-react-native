@@ -181,17 +181,7 @@ export default function Home() {
 
                         {/* courasel */}
                         <View style={styles.screen}>
-                            <View style={{marginBottom: -15}}>
-                                {/* <Carousel
-                                    data={images}
-                                    renderItem={() => <Card picture={feed[0].picture} />}
-                                    onSnapToItem={(index) => setActiveSlide(index)} // we will update active slide index
-                                    sliderWidth={SCREEN_WIDTH}
-                                    itemWidth={SCREEN_WIDTH/3}
-                                    layout={'tinder'} 
-                                /> */}
-
-
+                            <View style={{marginBottom: -15, marginLeft: -5, paddingRight:30}}>
                                 <FlatList style={styles.flatList} 
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true} 
@@ -209,7 +199,7 @@ export default function Home() {
                             </View>
                             <View style={styles.dotsPgae} >
                                 <Pagination
-                                dotsLength={images.length}
+                                dotsLength={parseInt(images.length/2)}
                                 activeDotIndex={index}
                                 inactiveDotStyle={{width: 12, height: 12, borderRadius: 50}}
                                 containerStyle={{alignItems: 'center', justifyContent: 'center'}}

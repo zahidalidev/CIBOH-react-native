@@ -22,7 +22,7 @@ function Card({heading, likes, picture}) {
     return (
       
                         
-            <View style={{flexDirection:'row'}} >
+            <View style={{flexDirection:'row', marginLeft: 5, marginRight:5}} >
                 <View style={styles.feedCards} >
                     <View>
                         <ImageBackground source={picture} style={styles.backgroundRecipt} >
@@ -38,9 +38,15 @@ function Card({heading, likes, picture}) {
                     <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, marginTop:5, maxWidth: 170}} >
                         Tasty Strawberry icecream 
                     </Text>
+                    <View style={{flexDirection: 'row'}} >
                     <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170}} >
-                        by Christy Obioha
+                        by 
                     </Text>
+                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170, color: colors.primary}} >
+                        {' '} Christy Obioha
+                    </Text>
+
+                    </View>
                 </View>
                 
             </View>
@@ -73,8 +79,9 @@ const styles = StyleSheet.create({
     reciptTime: {
         flexDirection: 'row',
         position: 'absolute',
+        minWidth: 50,
         bottom:5,
-        right:5
+        right:-3,
     },
 })
 
