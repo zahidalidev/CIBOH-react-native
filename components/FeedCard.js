@@ -19,9 +19,10 @@ function FeedCard({hashTags, likes, picture, heading, subHeading, id, lastChild}
         return null 
         }
 
-        console.log(id)
+    
+    const marginTopCard = (screenWidth)/2 - 5.71;
     return (            
-            <View key={id} style={{marginTop: (id%2===0) ? 0 : 200, marginBottom: (id%2===0) ? 0 : (lastChild===(id+1) ? 0 : -200), flexDirection:'row', marginLeft: 5, marginRight:5}} >
+            <View key={id} style={{marginTop: (id%2===0) ? 0 : marginTopCard, marginBottom: (id%2===0) ? 0 : (lastChild===(id+1) ? 0 : -marginTopCard), flexDirection:'row', marginLeft: 5, marginRight:5}} >
                 <View style={styles.feedCards} >
                     {/* <View> */}
                         <ImageBackground source={picture} style={[styles.backgroundRecipt]} >

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList } from 'react-native';
+import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
 import { useFonts } from 'expo-font'
@@ -7,7 +7,9 @@ import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import colors from '../config/colors';
 import img from '../assets/images/Rectangle2991.png'
+import img2 from '../assets/images/Rectangle99.png'
 import FeedCard from '../components/FeedCard';
+import ListCard from '../components/ListCard';
 
 const screenWidth = Dimensions.get('window').width;
 const { width } = Dimensions.get('window');
@@ -15,6 +17,7 @@ const height = width * 0.45
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const CAROUSEL_VERTICAL_OUTPUT = 30;
 const CAROUSEL_ITEM_WIDTH = SCREEN_WIDTH - CAROUSEL_VERTICAL_OUTPUT;
+
 
 const feeds = [
     {   
@@ -88,6 +91,72 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
+    },  
+]
+const toturailsData = [
+    {   
+        id: 1,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 2,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 3,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 4,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 5,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 6,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 7,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
+    },  
+    {   
+        id: 8,
+        picture: img2,
+        time: '10 mins',
+        serve: '1 serve',
+        hashTags: '#fries, #eggs',
+        heading: 'Make yummilicious breakfast for yourself',
     },  
 ]
 
@@ -198,7 +267,12 @@ function Feed(props) {
                     </View>
 
                     {/* feed Component */}
-                    <ScrollView style={{flexDirection:'row', marginLeft: -5}} >
+                    {/* <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -200, left:5, alignItems: 'center', justifyContent: 'center',maxWidth:195, maxHeight:195, minHeight:195, borderWidth: 2,borderColor: colors.primary}} >
+                            <MaterialCommunityIcons color={colors.primary} size={80} name="plus" />
+                            <Text style={{color: colors.primary}}>Add Photos</Text>
+                        </View>
+
                         <FlatList
                             data={feeds}
                             keyExtractor={item => item.id}     //has to be unique   
@@ -206,7 +280,22 @@ function Feed(props) {
                             horizontal={false}
                             numColumns={2}
                         />
+                    </ScrollView> */}
+
+                    {/* Tutorials */}
+                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                        
+                        <FlatList
+                            data={toturailsData}
+                            keyExtractor={item => item.id}     //has to be unique   
+                            renderItem={({item, index}) => <ListCard screenWidth={screenWidth} picture={item.picture} heading={item.heading} hashTags={item.hashTags} time={item.time} serve={item.serve} />} //method to render the data in the way you want using styling u need
+                            horizontal={false}
+                            numColumns={1}
+                        />
                     </ScrollView>
+
+                    
+                    
 
             </ScrollView>
         </SafeAreaView>
