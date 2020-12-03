@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         flexDirection: 'column',
+        // left:-20,
     },
     flatList: {
         // backgroundColor: "black",

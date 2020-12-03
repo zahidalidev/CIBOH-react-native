@@ -7,7 +7,7 @@ import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
 
 const screenWidth = Dimensions.get('window').width;
 
-function Card({heading, likes, picture}) {
+function Card({time, likes, picture, description, author}) {
 
     let [fontsLoaded] = useFonts({
         'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
@@ -28,22 +28,22 @@ function Card({heading, likes, picture}) {
                         <ImageBackground source={picture} style={styles.backgroundRecipt} >
                             <View style={styles.feedLikes} >
                                 <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>100k</Text>
+                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>{likes}</Text>
                             </View>
                             <View style={styles.reciptTime} >
-                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>40mins</Text>
+                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>{time}</Text>
                             </View>
                         </ImageBackground>
                     </View>
                     <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, marginTop:5, maxWidth: 170}} >
-                        Tasty Strawberry icecream 
+                        {description}
                     </Text>
                     <View style={{flexDirection: 'row'}} >
                     <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170}} >
                         by 
                     </Text>
                     <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170, color: colors.primary}} >
-                        {' '} Christy Obioha
+                        {' '} {author}
                     </Text>
 
                     </View>
