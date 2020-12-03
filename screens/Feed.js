@@ -363,7 +363,7 @@ function Feed(props) {
 
                         <FlatList
                             data={feeds}
-                            keyExtractor={item => item.id}     //has to be unique   
+                            keyExtractor={item => item.id.toString()}     //has to be unique   
                             renderItem={({item, index}) => <FeedCard lastChild={feeds.length}  id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={2}
@@ -375,7 +375,7 @@ function Feed(props) {
                         
                         <FlatList
                             data={toturailsData}
-                            keyExtractor={item => item.id}     //has to be unique   
+                            keyExtractor={item => item.id.toString()}     //has to be unique   
                             renderItem={({item, index}) => <ListCard screenWidth={screenWidth} picture={item.picture} heading={item.heading} hashTags={item.hashTags} time={item.time} serve={item.serve} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={1}
@@ -387,7 +387,7 @@ function Feed(props) {
                         
                         <FlatList
                             data={favRecipeData}
-                            keyExtractor={item => item.id}     //has to be unique   
+                            keyExtractor={item => item.id.toString()}     //has to be unique   
                             renderItem={({item, index}) => <FavCard author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={2}

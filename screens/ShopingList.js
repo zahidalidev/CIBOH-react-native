@@ -85,7 +85,7 @@ function ShopingList(props) {
                         <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                             <FlatList
                                 data={shopingData}
-                                keyExtractor={item => item.id}     //has to be unique   
+                                keyExtractor={item => item.id.toString()}     //has to be unique   
                                 renderItem={({item, index}) => <ShopingListCard screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
                                 horizontal={false}
                                 numColumns={1}

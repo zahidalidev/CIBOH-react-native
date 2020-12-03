@@ -262,7 +262,7 @@ export default function Home() {
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true} 
                                     data={recipeData}
-                                    keyExtractor={item => item.id}
+                                    keyExtractor={item => item.id.toString()}
                                     renderItem={({item, index}) => <Card author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />}
                                     pagingEnabled
                                     horizontal
