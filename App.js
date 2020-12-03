@@ -9,6 +9,7 @@ import Home from './screens/Home';
 import Search from './screens/Search';
 import ShopingList from './screens/ShopingList';
 import ShopingList_1 from './screens/ShopingList_1';
+import Login from './screens/Login';
 
 
 export default function App() {
@@ -28,8 +29,9 @@ export default function App() {
       {/* <Home /> */}
       {/* <Feed /> */}
       {/* <ShopingList /> */}
-      <ShopingList_1 />
+      {/* <ShopingList_1 /> */}
       {/* <Search /> */}
+      <Login />
     </View>
   );
 }
