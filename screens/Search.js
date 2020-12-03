@@ -6,30 +6,25 @@ import Constants from 'expo-constants';
 import {MaterialCommunityIcons} from "@expo/vector-icons"
 import { Input } from "native-base"
 
-import feedImg1 from "../assets/images/Rectangle8.png"
-import feedImg2 from "../assets/images/Rectangle9.png"
-import feedImg3 from "../assets/images/Rectangle18.png"
-import feedImg4 from "../assets/images/Rectangle19.png"
+import breakfast from "../assets/images/breakfast.png"
+import dessert from "../assets/images/dessert.png"
+import dinner from "../assets/images/dinner.png"
+import drink from "../assets/images/drink.png"
+import lunch from "../assets/images/lunch.png"
+import quizk from "../assets/images/quizk.png"
+
+
 import colors from '../config/colors';
+import IconBox from '../components/IconBox';
 
 const screenWidth = Dimensions.get('window').width;
 
 
 function Search(props) {
-    let [fontsLoaded] = useFonts({
-    'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
-    'AvianoFlareRegular': require('../assets/fonts/AvianoFlareRegular.otf'),
-    'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
-    });
-    
+   
     
     const [value, setValue] = React.useState('');
     const [valueStatus, setValueStauts] = React.useState('');
-
-    if(!fontsLoaded) {
-        return null 
-    }
-    
     
     return (
         <SafeAreaView  style={styles.container}>
@@ -37,6 +32,7 @@ function Search(props) {
             <ScrollView style={styles.scrollView}>
                 <View style={styles.shopingContainer}>
 
+                    {/* search Feild */}
                     <View style={{borderColor: colors.primary, alignItems: 'center', height: 55, borderWidth: 0.7, flexDirection: 'row', maxWidth:  '100%', minWidth:  '100%'}} >
                         <View style={{padding: 14}}>
                             <TextInput
@@ -55,6 +51,132 @@ function Search(props) {
                             <MaterialCommunityIcons style={{opacity:0.9}} size={30} color="white" name="magnify" />
                         </TouchableOpacity>
                     </View>
+                    
+                    {/* what do you want to eat 1*/}
+                    <View>
+                        <Text style={{fontFamily: 'ZermattFirst', fontSize: 27, marginTop:30}} >What do you want to eat?</Text>
+                    </View>
+                    <View style={{flexDirection: 'column', marginTop:20}}>
+                        <View style={{flexDirection: 'row', marginLeft:-10}}>
+                            <IconBox picture={drink} title={'Drinks'} />
+                            <IconBox picture={quizk} title={'Quick Bites'} />
+                            <IconBox picture={breakfast} title={'Breakfast'} />
+                        </View>
+                        <View style={{flexDirection: 'row', marginLeft:-10, marginTop: 20}}>
+                            <IconBox picture={lunch} title={'Lunch'} />
+                            <IconBox picture={dinner} title={'Dinner'} />
+                            <IconBox picture={dessert} title={'Dessert'} />
+                        </View>
+                    </View>
+
+                    {/* what do you want to eat 2*/}
+                    <View>
+                        <Text style={{fontFamily: 'ZermattFirst', fontSize: 27, marginTop:30}} >What do you want to eat?</Text>
+                    </View>
+
+                    <View style={{flexDirection: 'row'}} >
+                        <View style={styles.background} >
+                            <View style={{right: 10,}} >
+                                <MaterialCommunityIcons size={40} color={colors.primary} name="clock-outline" />
+                            </View>
+                            <View style={{flexDirection: 'column'}}>
+                                <Text style={{ fontSize: 25 ,fontFamily: 'ZermattFirst', color: colors.primary}} >30 min</Text>
+                                <Text style={{fontSize: 25 ,fontFamily: 'ZermattFirst', color: colors.primary}} >or less</Text>
+                            </View>
+                        </View>
+                        <View style={[styles.background, {left: 15}]} >
+                            <View style={{right: 10,}} >
+                                <MaterialCommunityIcons size={40} color={colors.primary} name="clock-outline" />
+                            </View>
+                            <View style={{flexDirection: 'column'}}>
+                                <Text style={{ fontSize: 25 ,fontFamily: 'ZermattFirst', color: colors.primary}} >More than</Text>
+                                <Text style={{fontSize: 25 ,fontFamily: 'ZermattFirst', color: colors.primary}} >30 min</Text>
+                            </View>
+                        </View>
+                    </View>
+                                
+                    {/* Select your cooking level*/}
+                    <View>
+                        <Text style={{fontFamily: 'ZermattFirst', fontSize: 27, marginTop:30}} >Select your cooking level</Text>
+                    </View>
+                    
+                    <View style={{flexDirection: 'column'}}>
+                        <View style={{flexDirection: 'row'}} >
+                            <View style={styles.background2} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Child Friendly</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background2, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Easy</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background2, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Moderate</Text>
+                                </View>
+                            </View>
+                            
+                        </View>
+                        <View style={[styles.background2, {marginTop: 10}]} >
+                            <View style={{flexDirection: 'column'}}>
+                                <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Advance</Text>
+                            </View>
+                        </View>
+                    </View>
+
+                     {/* Select your health goal*/}
+                    <View>
+                        <Text style={{fontFamily: 'ZermattFirst', fontSize: 27, marginTop:30}} >Select your health goal</Text>
+                    </View>
+
+                    <View style={{flexDirection: 'column'}}>
+                        <View style={{flexDirection: 'row'}} >
+                            <View style={styles.background3} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >No Preference</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background3, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >500 cals or less</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={{flexDirection: 'row', marginTop: -10}} >
+                            <View style={styles.background2} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Dairy Free</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background2, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Gluten Free</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background2, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Low Carb</Text>
+                                </View>
+                            </View>
+                            
+                        </View>
+                        <View style={{flexDirection: 'row', marginTop: -10}} >
+                            <View style={[styles.background2]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Plant Based</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.background2, {marginLeft:10}]} >
+                                <View style={{flexDirection: 'column'}}>
+                                    <Text style={{fontSize: 20 ,fontFamily: 'ZermattFirst', color: colors.primary}} >Vegetarian</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </View>
+
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -88,6 +210,30 @@ const styles = StyleSheet.create({
         // left: 10,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
+    },
+    background: {
+        width:(screenWidth/2) - 25, height: 110,
+        // paddingHorizontal: 15,
+        marginTop: 20,
+        flexDirection: 'row', backgroundColor: 'rgba(232, 213, 212, 0.7);',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    background2: {
+        width:(screenWidth/3) - 20, height: 80,
+        // paddingHorizontal: 15,
+        marginTop: 20,
+        flexDirection: 'row', backgroundColor: 'rgba(232, 213, 212, 0.7);',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    background3: {
+        width:(screenWidth/2) - 60, height: 80,
+        // paddingHorizontal: 15,
+        marginTop: 20,
+        flexDirection: 'row', backgroundColor: 'rgba(232, 213, 212, 0.7);',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 })
 
