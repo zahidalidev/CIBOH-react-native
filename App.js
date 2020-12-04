@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font'
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Feed from './screens/Feed';
 import Home from './screens/Home';
@@ -18,6 +19,8 @@ import AddIngrdient from './screens/AddIngrdient';
 import AddStep from './screens/AddStep';
 import Payment from './screens/Payment';
 
+const Stack = createDrawerNavigator();
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -31,8 +34,8 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
+    <>
+      {/* <StatusBar style="auto" /> */}
       {/* <Home /> */}
       {/* <Feed /> */}
       {/* <ShopingList /> */}
@@ -45,15 +48,26 @@ export default function App() {
       {/* <CreateRecipe_3 /> */}
       {/* <AddIngrdient /> */}
       {/* <AddStep /> */}
-      <Payment />
-    </View>
+      {/* <Payment /> */}
+        <NavigationContainer style={styles.container}>
+          <Stack.Navigator initialRouteName="Login" >
+
+            {/* Two Method to navigate to components */}
+            <Stack.Screen name="Login">{(props) => <Login {...props} />}</Stack.Screen>
+            <Stack.Screen name="Feed">{(props) => <Feed {...props} />}</Stack.Screen>
+            {/* <Stack.Screen name="ResultScreen">{(props) => <ResultScreen {...props} />}</Stack.Screen>
+            <Stack.Screen name="ReadTextScreen" options={{ title: "ReadTextScreen" }} component={ReadTextScreen} />
+            <Stack.Screen name="TranslateScreen" options={{ title: "TranslateScreen" }} component={TranslateScreen} /> */}
+          </Stack.Navigator>
+        </NavigationContainer>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },

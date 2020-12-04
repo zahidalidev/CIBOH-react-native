@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: Constants.statusBarHeight + 20,
+        // marginTop: Constants.statusBarHeight + 20,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

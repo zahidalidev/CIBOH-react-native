@@ -10,8 +10,16 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.1.0",
     "@react-native-community/hooks": "^2.6.0",
+    "@react-native-community/masked-view": "^0.1.7",
+    "@react-navigation/bottom-tabs": "^5.4.5",
+    "@react-navigation/drawer": "^5.7.5",
+    "@react-navigation/material-bottom-tabs": "^5.2.19",
+    "@react-navigation/material-top-tabs": "^5.2.5",
+    "@react-navigation/native": "^5.4.0",
+    "@react-navigation/stack": "^5.3.7",
     "expo": "~39.0.2",
     "expo-constants": "^9.0.0",
+    "expo-document-picker": "~8.4.0",
     "expo-font": "^8.3.0",
     "expo-image-picker": "^8.3.0",
     "expo-status-bar": "~1.0.2",
@@ -25,9 +33,12 @@
     "react-native-image-picker": "^2.3.4",
     "react-native-image-slider-box": "^1.0.12",
     "react-native-paper": "^4.4.1",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.4.0",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-web": "~0.13.12",
-    "expo-document-picker": "~8.4.0"
+    "react-native-tab-view": "^2.14.0",
+    "react-native-web": "~0.13.12"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: Constants.statusBarHeight + 30,
+    // marginTop: Constants.statusBarHeight + 30,
     flexDirection: 'column'
   },
   scrollView: {
