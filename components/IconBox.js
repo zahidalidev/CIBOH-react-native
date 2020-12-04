@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
-
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import colors from '../config/colors';
 
 const screenWidth = Dimensions.get('window').width;
@@ -9,7 +9,7 @@ function IconBox({picture, title}) {
    return (
        <View style={styles.container}>
            <Image source={picture} />
-           <Text style={{fontFamily: 'ZermattFirst', fontSize:23, marginTop:10}} >Drinks</Text>
+           <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(2.6), marginTop:10}} >Drinks</Text>
        </View>
    );
 }
