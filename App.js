@@ -57,42 +57,28 @@ export default function App() {
       {/* <Payment /> */}
         
       <NavigationContainer >
-        <Tab.Navigator initialRouteName="Feed"  tabBarOptions={{style:{height:70}, activeTintColor: colors.primary, tabStyle: { backgroundColor:"white"}}}>
+        <Tab.Navigator initialRouteName="Feed" tabBarOptions={{
+            style:{height:75, fontSize: 40},
+            labelStyle: {fontSize: 16, fontWeight: '700', marginBottom:14}, 
+            activeTintColor: colors.primary ,tabStyle: { backgroundColor:"white", fontSize: 40}
+          }}>
           <Tab.Screen
-            
             name="Home"
             component={Home}
             options={{
-              // padding: 50,
               tabBarLabel: 'Home',
+              
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
-                  name="settings"
+                  style={{marginTop:17}}
+                  name="home"
                   color={color}
-                  // selectionColor={colors.primary}
-                  
-                  
-                  size={size}
+                  size={size+15}
                 />
               ),
             }}
           />
-          <Tab.Screen
-            name="Feed"
-            component={Feed}
-            options={{
-              // padding: 50,
-              tabBarLabel: 'Feed',
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons
-                  name="settings"
-                  color={color}
-                  size={size}
-                />
-              ),
-            }}
-          />
-
+         
         </Tab.Navigator>
       </NavigationContainer>
     </>
