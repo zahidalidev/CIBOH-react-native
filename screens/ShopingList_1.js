@@ -101,7 +101,9 @@ class ShopingList_1 extends Component{
                 <ScrollView style={styles.scrollView}>
                     <View style={styles.shopingContainer}>
                         <View style={{flexDirection: 'row', alignItems: 'center'}} >
-                            <MaterialCommunityIcons style={{opacity:0.8}} name='chevron-left' color='black' size={35} />
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ShopingList')} >
+                                <MaterialCommunityIcons style={{opacity:0.8}} name='chevron-left' color='black' size={35} />
+                            </TouchableOpacity>
                             <Text style={{fontFamily: 'ZermattFirst', fontSize:28, left: 20}} >French Toast</Text>
                         </View>
 
@@ -109,7 +111,7 @@ class ShopingList_1 extends Component{
                             <FlatList
                                 data={this.state.shopingData}
                                 keyExtractor={item => item.id.toString()}     //has to be unique   
-                                renderItem={({item, index}) => <ShopingList_1Card onHandleDecrement={this.handleDecrement} onHandleIncrement={this.handleIncrement} screenWidth={screenWidth} id={item.id} quantity={item.quantity} heading={item.heading} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                                renderItem={({item, index}) => <ShopingList_1Card navigation={this.props.navigation} onHandleDecrement={this.handleDecrement} onHandleIncrement={this.handleIncrement} screenWidth={screenWidth} id={item.id} quantity={item.quantity} heading={item.heading} picture={item.picture} />} //method to render the data in the way you want using styling u need
                                 horizontal={false}
                                 numColumns={1}
                             />

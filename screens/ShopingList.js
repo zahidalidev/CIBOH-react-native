@@ -64,7 +64,7 @@ const shopingData = [
     },  
 ]
 
-function ShopingList(props) {
+function ShopingList({navigation}) {
     return (
         <SafeAreaView  style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
@@ -75,7 +75,7 @@ function ShopingList(props) {
                         <FlatList
                             data={shopingData}
                             keyExtractor={item => item.id.toString()}     //has to be unique   
-                            renderItem={({item, index}) => <ShopingListCard screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            renderItem={({item, index}) => <ShopingListCard navigation={navigation} screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={1}
                         />
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

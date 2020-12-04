@@ -4,7 +4,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import colors from '../config/colors';
 
-function ShopingListCard({screenWidth, picture, heading, subHeading}) {
+function ShopingListCard({screenWidth, picture, heading, subHeading, navigation}) {
    return (
        <View style={{width: screenWidth-16, height: screenWidth/3-15, flexDirection: 'row', marginTop: 20, borderWidth: 0.3, borderColor: colors.primary}} >
             <View>
@@ -14,7 +14,7 @@ function ShopingListCard({screenWidth, picture, heading, subHeading}) {
                 <Text style={{lineHeight:25, fontFamily: 'AvianoFlareRegular', fontSize:12, maxWidth: 210, minWidth:210, maxHeight: 42}} >{heading}</Text>
                 <Text style={{fontFamily: 'sofiaprolight', fontSize:14, color: colors.primary, marginTop:10}} >{subHeading}</Text>
                 
-                <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', right: "-23%", top: "18%", position: 'absolute'}}>
+                <TouchableOpacity onPress={() => navigation.navigate('ShopingList_1')} style={{flexDirection: 'row', alignItems: 'center', right: "-23%", top: "18%", position: 'absolute'}}>
                     <MaterialCommunityIcons style={{opacity:0.8}} name='chevron-right' color={colors.primary} size={35} />
                 </TouchableOpacity>
             </View>

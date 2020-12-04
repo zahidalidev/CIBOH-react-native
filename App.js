@@ -127,26 +127,17 @@ export default function App() {
 
   return (
     <>
-      {/* <StatusBar style="auto" /> */}
-      {/* <Home /> */}
-      {/* <Feed /> */}
-      {/* <ShopingList /> */}
-      {/* <ShopingList_1 /> */}
-      {/* <Search /> */}
-      {/* <Login /> */}
-      {/* <CreateRecipe /> */}
-      {/* <CreateRecipe_1 /> */}
-      {/* <CreateRecipe_2 /> */}
-      {/* <CreateRecipe_3 /> */}
-      {/* <AddIngrdient /> */}
-      {/* <AddStep /> */}
-      {/* <Payment /> */}
-        
       <NavigationContainer >
           <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="Home" component={HomeTabs} />
             <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Home" component={HomeTabs} />
             <Stack.Screen name="ShopingList_1" component={ShopingList_1} />
+            <Stack.Screen name="CreateRecipe_1" component={CreateRecipe_1} />
+            <Stack.Screen name="CreateRecipe_2" component={CreateRecipe_2} />
+            <Stack.Screen name="CreateRecipe_3" component={CreateRecipe_3} />
+            <Stack.Screen name="AddIngrdient" component={AddIngrdient} />
+            <Stack.Screen name="AddStep" component={AddStep} />
+            <Stack.Screen name="Payment" component={Payment} />
           </Stack.Navigator>
       </NavigationContainer>
     </>
@@ -156,7 +147,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },

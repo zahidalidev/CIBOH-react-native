@@ -9,7 +9,7 @@ import colors from '../config/colors';
 
 const screenWidth = Dimensions.get('window').width;
 
-function AddStep(props) {
+function AddStep({navigation}) {
 
     const [easyFront, setEasyFront] = useState('black')
     const [easyBack, setEasyBack] = useState('white')
@@ -114,7 +114,7 @@ function AddStep(props) {
 
                         {/* Next Button */}
                         <View style={{width:'100%', left: "5%", marginBottom: 20}} >
-                            <TouchableOpacity style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
+                            <TouchableOpacity onPress={() => navigation.navigate('Payment')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
                                 <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Save</Text>
                             </TouchableOpacity>
                         </View>
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

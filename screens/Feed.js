@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

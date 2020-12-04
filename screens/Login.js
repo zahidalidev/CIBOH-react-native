@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import logo from "../assets/images/loginLogo.png";
 import colors from '../config/colors';
 
-function Login(props) {
+function Login({navigation}) {
    return (
         <SafeAreaView  style={styles.container}>
                 <StatusBar style="auto" backgroundColor="#E8D5D4" />
@@ -38,7 +38,7 @@ function Login(props) {
                         </View>
 
                         <View>
-                            <TouchableOpacity style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
+                            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
                                 <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Sign in</Text>
                             </TouchableOpacity>
                         </View>

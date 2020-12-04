@@ -4,10 +4,7 @@ import Constants from 'expo-constants'
 
 import colors from '../config/colors';
 
-function AddIngrdient(props) {
-
-  
-
+function AddIngrdient({navigation}) {
 
     return (
        <SafeAreaView  style={styles.container}>
@@ -51,7 +48,7 @@ function AddIngrdient(props) {
                        
                         {/* Next Button */}
                         <View style={{width:'100%',height: '100%', left: "5%", marginTop: "65%"}} >
-                            <TouchableOpacity style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
+                            <TouchableOpacity onPress={() => navigation.navigate('AddStep')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
                                 <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Save</Text>
                             </TouchableOpacity>
                         </View>
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'
