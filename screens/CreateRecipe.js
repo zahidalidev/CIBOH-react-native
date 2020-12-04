@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
+import {Platform , Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -167,7 +167,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight + RFPercentage(3),
+        marginTop: Platform.OS === 'ios' ? RFPercentage(8) : null,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

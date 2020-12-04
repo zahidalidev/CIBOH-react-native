@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, Touchable
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font'
 import Constants from 'expo-constants';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import feedImg1 from "../assets/images/Rectangle8.png"
 import feedImg2 from "../assets/images/Rectangle9.png"

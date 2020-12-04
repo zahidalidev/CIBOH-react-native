@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
+import {Platform, SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font'
 import Constants from 'expo-constants';
@@ -184,10 +184,11 @@ function Search(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: Constants.statusBarHeight + 20,
+        // marginTop: Platform.OS === 'ios' ? RFPercentage(8) : null,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

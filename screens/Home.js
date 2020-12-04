@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useRef, useCallback} from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, FlatList, Platform } from 'react-native';
 import Constants from 'expo-constants'
 import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
 import { ImageBackground, Dimensions } from 'react-native';
@@ -318,6 +318,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: Constants.statusBarHeight + RFPercentage(2),
+        // marginTop: Platform.OS === 'ios' ? RFPercentage(5) : null,
         flexDirection: 'column'
     },
     scrollView: {
