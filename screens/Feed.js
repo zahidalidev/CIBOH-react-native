@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
 import {MaterialCommunityIcons} from "@expo/vector-icons"
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import colors from '../config/colors';
 import img from '../assets/images/Rectangle2991.png'
@@ -307,18 +308,18 @@ function Feed(props) {
                             <View >
                                 <Text style={[styles.feedM, {fontFamily: 'ZermattFirst'}]} >M</Text>
                             </View>
-                            <View style={{flexDirection: 'column', left: 25}}>
+                            <View style={{flexDirection: 'column', left: 25, marginTop: Platform.OS==='ios' ? RFPercentage(2) : null}}>
                                 <View style={{flexDirection: 'row'}}>
-                                    <Text style={{color: colors.primary,fontFamily: 'AvianoFlareRegular', fontSize:30}} >mimi</Text>
-                                    <MaterialCommunityIcons style={{ marginLeft: "45%"}} size={35} color={colors.primary} name="dots-horizontal" />
+                                    <Text style={{color: colors.primary,fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(3.3)}} >mimi</Text>
+                                    <MaterialCommunityIcons style={{ marginLeft: RFPercentage(16)}} size={35} color={colors.primary} name="dots-horizontal" />
                                 </View>
                                 <View>
-                                    <Text style={{color: colors.tertiary, fontFamily: 'sofiaprolight', fontSize:25}} >Communtiy</Text>
+                                    <Text style={{color: colors.tertiary, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.5)}} >Communtiy</Text>
                                 </View>
                                 
                                 <View>
                                     <TouchableOpacity style={{maxWidth: 120, marginTop: 10, borderWidth: 1, borderColor:colors.primary, alignItems: 'center'}}>
-                                        <Text style={{color: colors.primary, padding: 10}}>Edit Profile</Text>
+                                        <Text style={{color: colors.primary, padding: 10, fontSize: RFPercentage(1.5)}}>Edit Profile</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -330,24 +331,24 @@ function Feed(props) {
                     <View style={{ backgroundColor: colors.feedBar, width: "100%", height: 65, flex: 1, flexDirection:'row', alignItems: 'center', justifyContent: 'center'}}>
                         <View style={{ width: "33.33%", backgroundColor:feedBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
                             <MaterialCommunityIcons onPress={() => handleFeed()} color={feedBarFont} name="menu" size={20} />
-                            <Text onPress={() => handleFeed()} style={{fontFamily: 'AvianoFlareRegular', fontSize: 12, color:feedBarFont, paddingLeft:3}}>Feed</Text>
+                            <Text onPress={() => handleFeed()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:feedBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Feed</Text>
                         </View>
                         
                         <View  style={{ width: "33.33%", backgroundColor:tutoBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
                             <MaterialCommunityIcons onPress={()=>handleTutorial()} color={tutoBarFont} name="layers-triple-outline" size={20} />
-                            <Text onPress={()=>handleTutorial()} style={{fontFamily: 'AvianoFlareRegular', fontSize: 12, color:tutoBarFont, paddingLeft:3}}>Tutorials</Text>
+                            <Text onPress={()=>handleTutorial()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:tutoBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Tutorials</Text>
                         </View>
                         
                         <View style={{ width: "33.33%", backgroundColor:favBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
                             <MaterialCommunityIcons onPress={() => handleFav()} color={favBarFont} name="heart-outline" size={20} />
-                            <Text onPress={() => handleFav()} style={{fontFamily: 'AvianoFlareRegular', fontSize: 12, color:favBarFont, paddingLeft:3}}>Favorites</Text>
+                            <Text onPress={() => handleFav()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:favBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Favorites</Text>
                         </View>
                     </View>
 
                     {/* feed Component */}
-                    {currentCompoent === 'feedC' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
-                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -200, left:5, alignItems: 'center', justifyContent: 'center',maxWidth:195, maxHeight:195, minHeight:195, borderWidth: 2,borderColor: colors.primary}} >
-                            <MaterialCommunityIcons color={colors.primary} size={80} name="plus" />
+                    {currentCompoent === 'feedC' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
+                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -RFPercentage(26.8), left:5, alignItems: 'center', justifyContent: 'center',maxWidth:195, maxHeight:195, minHeight:195, borderWidth: 2,borderColor: colors.primary}} >
+                            <MaterialCommunityIcons color={colors.primary} size={RFPercentage(10)} name="plus" />
                             <Text style={{color: colors.primary}}>Add Photos</Text>
                         </View>
 
@@ -361,7 +362,7 @@ function Feed(props) {
                     </ScrollView> : null}
 
                     {/* Tutorials */}
-                    {currentCompoent === 'tutFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {currentCompoent === 'tutFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
                         
                         <FlatList
                             data={toturailsData}
@@ -373,7 +374,7 @@ function Feed(props) {
                     </ScrollView> : null}
 
                     {/* Favourites */}
-                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
                         
                         <FlatList
                             data={favRecipeData}
@@ -423,13 +424,13 @@ const styles = StyleSheet.create({
     feedCards3: {
         // flex: 1,
         flexDirection: 'row',
-        marginTop: 20
+        marginTop: RFPercentage(3)
 
     },
     feedM: {
-        fontSize: 65,
+        fontSize: RFPercentage(10),
         color: 'white',
-        padding: 35, paddingLeft: 40, paddingRight:40,
+        padding: RFPercentage(3), paddingLeft: RFPercentage(4), paddingRight:RFPercentage(4),
         backgroundColor:colors.secondary,
         maxWidth:(screenWidth/2) -65, maxHeight: 140
     }

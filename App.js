@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, LogBox } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {FontAwesome,MaterialCommunityIcons, SimpleLineIcons, Feather} from "@expo/vector-icons"
+import {FontAwesome, MaterialCommunityIcons, SimpleLineIcons, Feather} from "@expo/vector-icons"
+import * as Font from 'expo-font';
 
 import Feed from './screens/Feed';
 import Home from './screens/Home';
@@ -28,12 +29,30 @@ LogBox.ignoreAllLogs()
 const Stack = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function App() {
-  let [fontsLoaded] = useFonts({
+const customFonts = {
   'ZermattFirst': require('./assets/fonts/ZermattFirst.otf'),
   'AvianoFlareRegular': require('./assets/fonts/AvianoFlareRegular.otf'),
   'sofiaprolight': require('./assets/fonts/sofiaprolight.otf'),
-  });
+}
+
+export default function App() {
+//   let [fontsLoaded] = useFonts({
+//   'ZermattFirst': require('./assets/fonts/ZermattFirst.otf'),
+//   'AvianoFlareRegular': require('./assets/fonts/AvianoFlareRegular.otf'),
+//   'sofiaprolight': require('./assets/fonts/sofiaprolight.otf'),
+//   });
+  const [fontLoaded, setFoantLoaded] = useState(false)
+
+  const loadFontsAsync = async() => {
+    await Font.loadAsync(customFonts);
+    setFoantLoaded(true);
+  }
+
+  useEffect(() => {
+    loadFontsAsync();
+  })
+
+   
 
   function HomeTabs() {
     return (
@@ -121,9 +140,10 @@ export default function App() {
     );
   }
 
-  if(!fontsLoaded) {
+  if(!fontLoaded) {
         return null 
   }
+
 
   return (
     <>

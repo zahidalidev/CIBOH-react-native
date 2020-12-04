@@ -71,7 +71,7 @@ function ShopingList({navigation}) {
             <StatusBar style="auto" backgroundColor="white" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.shopingContainer}>
-                    <Text style={{fontFamily: 'ZermattFirst', fontSize:28}} >Shopping List</Text>
+                    <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(3.5)}} >Shopping List</Text>
                     <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
                         <FlatList
                             data={shopingData}
