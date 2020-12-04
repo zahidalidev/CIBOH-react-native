@@ -35,29 +35,9 @@ export default function App() {
   'sofiaprolight': require('./assets/fonts/sofiaprolight.otf'),
   });
 
-  if(!fontsLoaded) {
-        return null 
-  }
-
-  return (
-    <>
-      {/* <StatusBar style="auto" /> */}
-      {/* <Home /> */}
-      {/* <Feed /> */}
-      {/* <ShopingList /> */}
-      {/* <ShopingList_1 /> */}
-      {/* <Search /> */}
-      {/* <Login /> */}
-      {/* <CreateRecipe /> */}
-      {/* <CreateRecipe_1 /> */}
-      {/* <CreateRecipe_2 /> */}
-      {/* <CreateRecipe_3 /> */}
-      {/* <AddIngrdient /> */}
-      {/* <AddStep /> */}
-      {/* <Payment /> */}
-        
-      <NavigationContainer >
-        <Tab.Navigator initialRouteName="Home" tabBarOptions={{
+  function HomeTabs() {
+    return (
+      <Tab.Navigator initialRouteName="Home" tabBarOptions={{
             style:{height:75, fontSize: 40},
             labelStyle: {fontSize: 14, fontWeight: '500', marginBottom:14}, 
             activeTintColor: colors.primary, inactiveTintColor:'#C3C3C3', tabStyle: { backgroundColor:"white", fontSize: 40}
@@ -137,8 +117,37 @@ export default function App() {
               ),
             }}
           />
-         
         </Tab.Navigator>
+    );
+  }
+
+  if(!fontsLoaded) {
+        return null 
+  }
+
+  return (
+    <>
+      {/* <StatusBar style="auto" /> */}
+      {/* <Home /> */}
+      {/* <Feed /> */}
+      {/* <ShopingList /> */}
+      {/* <ShopingList_1 /> */}
+      {/* <Search /> */}
+      {/* <Login /> */}
+      {/* <CreateRecipe /> */}
+      {/* <CreateRecipe_1 /> */}
+      {/* <CreateRecipe_2 /> */}
+      {/* <CreateRecipe_3 /> */}
+      {/* <AddIngrdient /> */}
+      {/* <AddStep /> */}
+      {/* <Payment /> */}
+        
+      <NavigationContainer >
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen name="Home" component={HomeTabs} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="ShopingList_1" component={ShopingList_1} />
+          </Stack.Navigator>
       </NavigationContainer>
     </>
   );
