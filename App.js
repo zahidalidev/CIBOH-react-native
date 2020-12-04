@@ -15,6 +15,7 @@ import CreateRecipe_1 from './screens/CreateRecipe_1';
 import CreateRecipe_2 from './screens/CreateRecipe_2';
 import CreateRecipe_3 from './screens/CreateRecipe_3';
 import AddIngrdient from './screens/AddIngrdient';
+import AddStep from './screens/AddStep';
 
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
       {/* <CreateRecipe_2 /> */}
       {/* <CreateRecipe_3 /> */}
       {/* <AddIngrdient /> */}
+      <AddStep />
     </View>
   );
 }
