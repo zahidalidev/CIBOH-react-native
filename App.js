@@ -12,6 +12,8 @@ import ShopingList_1 from './screens/ShopingList_1';
 import Login from './screens/Login';
 import CreateRecipe from './screens/CreateRecipe';
 import CreateRecipe_1 from './screens/CreateRecipe_1';
+import CreateRecipe_2 from './screens/CreateRecipe_2';
+import CreateRecipe_3 from './screens/CreateRecipe_3';
 
 
 export default function App() {
@@ -35,7 +37,9 @@ export default function App() {
       {/* <Search /> */}
       {/* <Login /> */}
       {/* <CreateRecipe /> */}
-      <CreateRecipe_1 />
+      {/* <CreateRecipe_1 /> */}
+      {/* <CreateRecipe_2 /> */}
+      <CreateRecipe_3 />
     </View>
   );
 }
