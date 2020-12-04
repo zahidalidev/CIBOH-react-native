@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
 
 import uploadCloudIcon from "../assets/images/cloudUpload.png"
 import colors from '../config/colors';
+
+const screenWidth = Dimensions.get('window').width;
 
 function CreateRecipe({navigation}) {
 
@@ -80,7 +82,7 @@ function CreateRecipe({navigation}) {
                            <View style={{padding: '5%', alignItems: 'center'}} >
                             <Image source={uploadCloudIcon} maxWidth={100} maxHeight={100} />
                             <TouchableOpacity onPress={() => handleImage()}>
-                                <Text style={{fontSize: 27, fontFamily: 'AvianoFlareRegular'}} >Upload Photo</Text>
+                                <Text style={{fontSize: screenWidth/15, fontFamily: 'AvianoFlareRegular'}} >Upload Photo</Text>
                             </TouchableOpacity>
                             <Text style={{opacity: 0.7  , color: 'grey',fontSize: 17, fontFamily: 'sofiaprolight'}} >Click here for upload cover photo.</Text>
                            </View>
