@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import Constants from 'expo-constants'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import colors from '../config/colors';
 
@@ -12,7 +13,7 @@ function CreateRecipe_2({navigation}) {
                 <ScrollView style={styles.scrollView}>
                     {/* header */}
                     <View style={{backgroundColor: colors.secondary, width:"100%"}}>
-                        <Text style={{padding: 10, left: "2%", color: "white", maxWidth: "90%",fontFamily: "ZermattFirst", fontSize:30}} >Let\s add some categories to make your recipe easy to find?</Text>
+                        <Text style={{padding: 10, left: "2%", color: "white", maxWidth: "90%",fontFamily: "ZermattFirst", fontSize:RFPercentage(3)}} >Let\s add some categories to make your recipe easy to find?</Text>
                     </View>
 
                     <View style={styles.recipeContainer}>
@@ -21,21 +22,21 @@ function CreateRecipe_2({navigation}) {
                         {/* feilds */}
                         <View style={{ left: '5%', marginTop: "10%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
                             <View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Dish Type</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Dish Type</Text>
                                 <TextInput style={{marginTop: 5, fontSize:20 ,minWidth: "100%", borderBottomColor: "black", borderBottomWidth: 1}} />
                             </View>
                         </View>
 
                         <View style={{ left: '5%', marginTop: "10%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
                             <View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Cusine</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Cusine</Text>
                                 <TextInput style={{marginTop: 5, fontSize:20 ,minWidth: "100%", borderBottomColor: "black", borderBottomWidth: 1}} />
                             </View>
                         </View>
 
                         <View style={{ left: '5%', marginTop: "10%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
                             <View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Occasion</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Occasion</Text>
                                 <TextInput style={{marginTop: 5, fontSize:20 ,minWidth: "100%", borderBottomColor: "black", borderBottomWidth: 1}} />
                             </View>
                         </View>
@@ -43,9 +44,9 @@ function CreateRecipe_2({navigation}) {
                         
                        
                         {/* Next Button */}
-                        <View style={{width:'100%',height: '100%', left: "5%", marginTop: "65%"}} >
+                        <View style={{width:'100%',height: '100%', left: "5%", marginTop: RFPercentage(24)}} >
                             <TouchableOpacity onPress={() => navigation.navigate('CreateRecipe_3')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
-                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Next</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: RFPercentage(2), color: 'white'}} >Next</Text>
                             </TouchableOpacity>
                         </View>
 

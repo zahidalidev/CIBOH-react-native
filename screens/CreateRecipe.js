@@ -164,11 +164,11 @@ function CreateRecipe({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: Constants.statusBarHeight + RFPercentage(3),
-        marginTop: Platform.OS === 'ios' ? RFPercentage(8) : null,
+        // marginTop: Platform.OS === 'ios' ? RFPercentage(8) : null,
         flexDirection: 'column',
         // backgroundColor: 'red',
         width:'100%'

@@ -3,6 +3,7 @@ import {Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import uploadCloudIcon from "../assets/images/cloudUpload.png"
 import colors from '../config/colors';
@@ -71,7 +72,7 @@ function AddStep({navigation}) {
                 <ScrollView style={styles.scrollView}>
                     {/* header */}
                     <View style={{backgroundColor: colors.secondary, width:"100%"}}>
-                        <Text style={{padding: 10, left: "2%", color: "white", maxWidth: "90%",fontFamily: "ZermattFirst", fontSize:30}} >Add step to help us out in your recipe</Text>
+                        <Text style={{padding: 10, left: "2%", color: "white", maxWidth: "90%",fontFamily: "ZermattFirst", fontSize:RFPercentage(3)}} >Add step to help us out in your recipe</Text>
                     </View>
 
                     <View style={styles.recipeContainer}>
@@ -81,16 +82,16 @@ function AddStep({navigation}) {
                            <View style={{padding: '5%', alignItems: 'center'}} >
                             <Image source={uploadCloudIcon} maxWidth={100} maxHeight={100} />
                             <TouchableOpacity onPress={() => handleImage()}>
-                                <Text style={{fontSize: screenWidth/18 , fontFamily: 'AvianoFlareRegular'}} >Upload Photo or VIdeo</Text>
+                                <Text style={{fontSize: RFPercentage(2.3) , fontFamily: 'AvianoFlareRegular'}} >Upload Photo or VIdeo</Text>
                             </TouchableOpacity>
-                            <Text style={{opacity: 0.7  , color: 'grey',fontSize: 17, fontFamily: 'sofiaprolight'}} >Upload Photo or video of step</Text>
+                            <Text style={{opacity: 0.7  , color: 'grey',fontSize: RFPercentage(2), fontFamily: 'sofiaprolight'}} >Upload Photo or video of step</Text>
                            </View>
                         </View>
 
                         {/* feild */}
                         <View style={{ left: '5%', marginTop: "10%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
                             <View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Step Description</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Step Description</Text>
                                 <TextInput style={{marginTop: 25, fontSize:20 ,minWidth: "100%", borderBottomColor: "black", borderBottomWidth: 1}} />
                             </View>
                         </View>
@@ -98,24 +99,24 @@ function AddStep({navigation}) {
 
                          {/* Add ingredients */}
                         <View style={{ left: '5%', marginTop: "5%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
-                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Ingrdients Used</Text>
+                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Ingrdients Used</Text>
                             <View style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius:2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)'}} >
-                                <Text style={{opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize:23, color: colors.primary}}>Add Ingredients</Text>
+                                <Text style={{opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize:RFPercentage(2.5), color: colors.primary}}>Add Ingredients</Text>
                             </View>
                         </View>
 
                         {/* Steps */}
                         <View style={{ left: '5%', marginTop: "5%", width:"100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}} >
-                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Utensils Used</Text>
+                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5)}} >Utensils Used</Text>
                             <View style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius:2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)'}} >
-                                <Text style={{opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize:23, color: colors.primary}}>Add a Untensil</Text>
+                                <Text style={{opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize:RFPercentage(2.5), color: colors.primary}}>Add a Untensil</Text>
                             </View>
                         </View>
 
                         {/* Next Button */}
                         <View style={{width:'100%', left: "5%", marginBottom: 20}} >
                             <TouchableOpacity onPress={() => navigation.navigate('Payment')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
-                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Save</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: RFPercentage(2), color: 'white'}} >Save</Text>
                             </TouchableOpacity>
                         </View>
 

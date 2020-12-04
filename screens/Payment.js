@@ -3,6 +3,8 @@ import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Tex
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
 import {MaterialCommunityIcons} from "@expo/vector-icons"
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 import diamond from "../assets/images/diamond.png"
 import colors from '../config/colors';
@@ -83,41 +85,41 @@ function Payment(props) {
                         </View>
 
                         <View style={{width: '100%', marginTop:50}} > 
-                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: (screenWidth/22)}} >one Place for all your recipes</Text>
+                            <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.2)}} >one Place for all your recipes</Text>
                         </View>
 
                         <View style={{flexDirection: 'column', left: "5%", marginTop: 40}} >
                             <View style={{flexDirection: 'row'}} >
                                 <MaterialCommunityIcons color={colors.primary} name="star" size={15} style={{marginTop: 3}} />
-                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:18}} >Collect unlimited recipes from the web</Text>
+                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Collect unlimited recipes from the web</Text>
                             </View>
                             <View style={{marginTop: 10, flexDirection: 'row'}} >
                                 <MaterialCommunityIcons color={colors.primary} name="star" size={15} style={{marginTop: 3}} />
-                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:18}} >Collect unlimited recipes from the web</Text>
+                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Collect unlimited recipes from the web</Text>
                             </View>
                             <View style={{marginTop: 10, flexDirection: 'row'}} >
                                 <MaterialCommunityIcons color={colors.primary} name="star" size={15} style={{marginTop: 3}} />
-                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:18}} >Collect unlimited recipes from the web</Text>
+                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Collect unlimited recipes from the web</Text>
                             </View>
                         </View>
 
                         <View style={{width: '100%', marginTop:"7%", alignItems: 'center'}} > 
-                            <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: (screenWidth/22)}} >Start your 14 days free trail</Text>
+                            <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2)}} >Start your 14 days free trail</Text>
                         </View>
 
                         {/* Subcribe Button */}
                         <View style={{width:'100%', marginTop:"5%"}} >
                             <TouchableOpacity style={{backgroundColor: colors.primary, alignItems: 'center'}} >
-                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >subscribe for $24.99 / year</Text>
+                                <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: RFPercentage(2), color: 'white'}} >subscribe for $24.99 / year</Text>
                             </TouchableOpacity>
                         </View>
 
                         <View style={{width: '100%', marginTop:"5%", alignItems: 'center'}} > 
-                            <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: (screenWidth/22)}} >Show more plans</Text>
+                            <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2)}} >Show more plans</Text>
                         </View>
 
                         <View style={{width: '100%', marginTop:"7%", alignItems: 'center'}} > 
-                            <Text style={{color: 'black', fontFamily: 'sofiaprolight', fontSize:16}} >
+                            <Text style={{color: 'black', fontFamily: 'sofiaprolight', fontSize:RFPercentage(2)}} >
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum augue sed leo semper tristique. Sed dapibus ultrices eros cursus porttitor. Donec molestie nunc eget justo sodales feugiat.
                             </Text>
                         </View>
