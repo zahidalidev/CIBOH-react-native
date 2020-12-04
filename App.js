@@ -36,11 +36,7 @@ const customFonts = {
 }
 
 export default function App() {
-//   let [fontsLoaded] = useFonts({
-//   'ZermattFirst': require('./assets/fonts/ZermattFirst.otf'),
-//   'AvianoFlareRegular': require('./assets/fonts/AvianoFlareRegular.otf'),
-//   'sofiaprolight': require('./assets/fonts/sofiaprolight.otf'),
-//   });
+
   const [fontLoaded, setFoantLoaded] = useState(false)
 
   const loadFontsAsync = async() => {

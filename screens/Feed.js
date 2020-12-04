@@ -347,7 +347,7 @@ function Feed(props) {
 
                     {/* feed Component */}
                     {currentCompoent === 'feedC' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
-                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -RFPercentage(26.8), left:5, alignItems: 'center', justifyContent: 'center',maxWidth:195, maxHeight:195, minHeight:195, borderWidth: 2,borderColor: colors.primary}} >
+                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -RFPercentage(26.8), left:5, alignItems: 'center', justifyContent: 'center',maxWidth:RFPercentage(24), maxHeight:RFPercentage(24), minHeight:RFPercentage(24), borderWidth: 2,borderColor: colors.primary}} >
                             <MaterialCommunityIcons color={colors.primary} size={RFPercentage(10)} name="plus" />
                             <Text style={{color: colors.primary}}>Add Photos</Text>
                         </View>
