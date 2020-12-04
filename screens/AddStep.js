@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
+import {Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
+import * as DocumentPicker from 'expo-document-picker';
 
 import uploadCloudIcon from "../assets/images/cloudUpload.png"
 import colors from '../config/colors';
+
+const screenWidth = Dimensions.get('window').width;
 
 function AddStep(props) {
 
@@ -52,15 +55,13 @@ function AddStep(props) {
     
 
     const handleImage = async() => {
-        let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
-
-        if (permissionResult.granted === false) {
-        alert("Permission to access camera roll is required!");
-        return;
+        const result = await DocumentPicker.getDocumentAsync({});
+        console.log('result', result);
+        if (!result.cancelled) {
+        this.setState({
+            image: result,
+        });
         }
-
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        console.log(pickerResult);
      
     }
 
@@ -80,9 +81,9 @@ function AddStep(props) {
                            <View style={{padding: '5%', alignItems: 'center'}} >
                             <Image source={uploadCloudIcon} maxWidth={100} maxHeight={100} />
                             <TouchableOpacity onPress={() => handleImage()}>
-                                <Text style={{fontSize: 27, fontFamily: 'AvianoFlareRegular'}} >Upload Photo</Text>
+                                <Text style={{fontSize: screenWidth/18 , fontFamily: 'AvianoFlareRegular'}} >Upload Photo or VIdeo</Text>
                             </TouchableOpacity>
-                            <Text style={{opacity: 0.7  , color: 'grey',fontSize: 17, fontFamily: 'sofiaprolight'}} >Click here for upload cover photo.</Text>
+                            <Text style={{opacity: 0.7  , color: 'grey',fontSize: 17, fontFamily: 'sofiaprolight'}} >Upload Photo or video of step</Text>
                            </View>
                         </View>
 
