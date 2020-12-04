@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Feed from './screens/Feed';
 import Home from './screens/Home';
@@ -20,7 +21,22 @@ import AddStep from './screens/AddStep';
 import Payment from './screens/Payment';
 
 const Stack = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
+function HomeStack() {
+  return (
+    
+          <Stack.Navigator initialRouteName="Home" >
+
+            {/* Two Method to navigate to components */}
+            <Stack.Screen name="Home">{(props) => <Home {...props} />}</Stack.Screen>
+            <Stack.Screen name="Feed">{(props) => <Feed {...props} />}</Stack.Screen>
+            {/* <Stack.Screen name="ResultScreen">{(props) => <ResultScreen {...props} />}</Stack.Screen>
+            <Stack.Screen name="ReadTextScreen" options={{ title: "ReadTextScreen" }} component={ReadTextScreen} />
+            <Stack.Screen name="TranslateScreen" options={{ title: "TranslateScreen" }} component={TranslateScreen} /> */}
+          </Stack.Navigator>
+  );
+}
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -49,17 +65,13 @@ export default function App() {
       {/* <AddIngrdient /> */}
       {/* <AddStep /> */}
       {/* <Payment /> */}
-        <NavigationContainer style={styles.container}>
-          <Stack.Navigator initialRouteName="Login" >
-
-            {/* Two Method to navigate to components */}
-            <Stack.Screen name="Login">{(props) => <Login {...props} />}</Stack.Screen>
-            <Stack.Screen name="Feed">{(props) => <Feed {...props} />}</Stack.Screen>
-            {/* <Stack.Screen name="ResultScreen">{(props) => <ResultScreen {...props} />}</Stack.Screen>
-            <Stack.Screen name="ReadTextScreen" options={{ title: "ReadTextScreen" }} component={ReadTextScreen} />
-            <Stack.Screen name="TranslateScreen" options={{ title: "TranslateScreen" }} component={TranslateScreen} /> */}
-          </Stack.Navigator>
-        </NavigationContainer>
+        
+      <NavigationContainer >
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Feed" component={Feed} />
+        </Tab.Navigator>
+      </NavigationContainer>
     </>
   );
 }
@@ -67,7 +79,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
