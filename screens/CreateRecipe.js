@@ -1,12 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import Constants from 'expo-constants'
+import * as ImagePicker from 'expo-image-picker';
 
 import uploadCloudIcon from "../assets/images/cloudUpload.png"
 import colors from '../config/colors';
 
 function CreateRecipe(props) {
-   return (
+
+    const [easyFront, setEasyFront] = useState('black')
+    const [easyBack, setEasyBack] = useState('white')
+
+    const [mediumFront, setMediumFront] = useState('white')
+    const [mediumBack, setMediumBack] = useState(colors.secondary)
+
+    const [hardFront, setHardFront] = useState('white')
+    const [hardBack, setHardBack] = useState(colors.secondary)
+
+    const handleEasy = () => {
+        setEasyFront('black')
+        setEasyBack('white')
+
+        setMediumFront('white')
+        setMediumBack(colors.secondary)
+
+        setHardFront('white')
+        setHardBack(colors.secondary)
+    }
+
+    const handleMedium = () => {
+        setEasyFront('white')
+        setEasyBack(colors.secondary)
+
+        setMediumFront('black')
+        setMediumBack('white')
+
+        setHardFront('white')
+        setHardBack(colors.secondary)
+    }
+
+    const handleHard = () => {
+        setEasyFront('white')
+        setEasyBack(colors.secondary)
+
+        setMediumFront('white')
+        setMediumBack(colors.secondary)
+
+        setHardFront('black')
+        setHardBack('white')
+    }
+    
+
+    const handleImage = async() => {
+        let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+
+        if (permissionResult.granted === false) {
+        alert("Permission to access camera roll is required!");
+        return;
+        }
+
+        let pickerResult = await ImagePicker.launchImageLibraryAsync();
+        console.log(pickerResult);
+     
+    }
+
+    return (
        <SafeAreaView  style={styles.container}>
                 <StatusBar style="auto" backgroundColor="white" />
                 <ScrollView style={styles.scrollView}>
@@ -21,7 +79,9 @@ function CreateRecipe(props) {
                         <View style={{left: '5%', flexDirection: 'column', width:"100%", backgroundColor: colors.feedBar, justifyContent: 'center', alignItems: 'center'}}>
                            <View style={{padding: '5%', alignItems: 'center'}} >
                             <Image source={uploadCloudIcon} maxWidth={100} maxHeight={100} />
-                            <Text style={{fontSize: 27, fontFamily: 'AvianoFlareRegular'}} >Upload Photo</Text>
+                            <TouchableOpacity onPress={() => handleImage()}>
+                                <Text style={{fontSize: 27, fontFamily: 'AvianoFlareRegular'}} >Upload Photo</Text>
+                            </TouchableOpacity>
                             <Text style={{opacity: 0.7  , color: 'grey',fontSize: 17, fontFamily: 'sofiaprolight'}} >Click here for upload cover photo.</Text>
                            </View>
                         </View>
@@ -40,14 +100,14 @@ function CreateRecipe(props) {
                                 <Text style={{fontFamily: 'AvianoFlareRegular', fontSize: 22}} >Difficulty</Text>
                                 
                                 <View style={{flexDirection: 'row', marginTop: "5%"}} >
-                                    <TouchableOpacity style={{alignItems: 'center', width: "28%", backgroundColor: 'whtie', borderWidth: 4, borderColor: colors.secondary}} >
-                                        <Text style={{color: 'black', fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Easy</Text>
+                                    <TouchableOpacity onPress={() => handleEasy()} style={{alignItems: 'center', width: "28%", backgroundColor: easyBack, borderWidth: 4, borderColor: colors.secondary}} >
+                                        <Text style={{color: easyFront, fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Easy</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{marginLeft: "8.8%",alignItems: 'center', width: "28%", backgroundColor: 'whtie', borderWidth: 4, borderColor: colors.secondary}} >
-                                        <Text style={{color: 'black', fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Medium</Text>
+                                    <TouchableOpacity onPress={() => handleMedium()}  style={{marginLeft: "8.8%",alignItems: 'center', width: "28%", backgroundColor: mediumBack, borderWidth: 4, borderColor: colors.secondary}} >
+                                        <Text style={{color: mediumFront, fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Medium</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{marginLeft: "8.8%",alignItems: 'center', width: "28%", backgroundColor: 'whtie', borderWidth: 4, borderColor: colors.secondary}} >
-                                        <Text style={{color: 'black', fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Hard</Text>
+                                    <TouchableOpacity onPress={() => handleHard()}  style={{marginLeft: "8.8%",alignItems: 'center', width: "28%", backgroundColor: hardBack, borderWidth: 4, borderColor: colors.secondary}} >
+                                        <Text style={{color: hardFront, fontFamily: 'ZermattFirst', fontSize:22, padding: 5}}>Hard</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
