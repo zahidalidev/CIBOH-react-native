@@ -31,7 +31,7 @@ export default function App() {
       {/* <ShopingList /> */}
       {/* <ShopingList_1 /> */}
       {/* <Search /> */}
-      <Login />
+      {/* <Login /> */}
     </View>
   );
 }
