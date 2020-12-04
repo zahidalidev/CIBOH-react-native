@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import Constants from 'expo-constants'
 
 import logo from "../assets/images/loginLogo.png";
 import colors from '../config/colors';
@@ -38,7 +39,7 @@ function Login({navigation}) {
                         </View>
 
                         <View>
-                            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
+                            <TouchableOpacity onPress={() => navigation.navigate('HomeTabs')} style={{backgroundColor: colors.primary, alignItems: 'center', marginTop:"13%"}} >
                                 <Text style={{fontFamily: 'AvianoFlareRegular', padding:11, fontSize: 17, color: 'white'}} >Sign in</Text>
                             </TouchableOpacity>
                         </View>
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E8D5D4',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: Constants.statusBarHeight + 20,
+        paddingTop: Constants.statusBarHeight + 20,
         flexDirection: 'column',
         width:'100%'
     },

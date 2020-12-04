@@ -130,7 +130,7 @@ export default function App() {
       <NavigationContainer >
           <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Home" component={HomeTabs} />
+            <Stack.Screen name="HomeTabs" component={HomeTabs} />
             <Stack.Screen name="ShopingList_1" component={ShopingList_1} />
             <Stack.Screen name="CreateRecipe_1" component={CreateRecipe_1} />
             <Stack.Screen name="CreateRecipe_2" component={CreateRecipe_2} />
