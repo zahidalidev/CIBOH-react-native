@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, LogBox } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -22,11 +22,10 @@ import AddStep from './screens/AddStep';
 import Payment from './screens/Payment';
 import colors from './config/colors';
 
+LogBox.ignoreAllLogs()
+
 const Stack = createDrawerNavigator();
-
-
 const Tab = createBottomTabNavigator();
-
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -67,7 +66,66 @@ export default function App() {
             component={Home}
             options={{
               tabBarLabel: 'Home',
-              
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  style={{marginTop:17}}
+                  name="home"
+                  color={color}
+                  size={size+15}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={Search}
+            options={{
+              tabBarLabel: 'Search',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  style={{marginTop:17}}
+                  name="home"
+                  color={color}
+                  size={size+15}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="CreateRecipe"
+            component={CreateRecipe}
+            options={{
+              tabBarLabel: 'Create',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  style={{marginTop:17}}
+                  name="home"
+                  color={color}
+                  size={size+15}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="ShopingList"
+            component={ShopingList}
+            options={{
+              tabBarLabel: 'Shoping',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  style={{marginTop:17}}
+                  name="home"
+                  color={color}
+                  size={size+15}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Feed"
+            component={Feed}
+            options={{
+              tabBarLabel: 'Profile',
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
                   style={{marginTop:17}}
