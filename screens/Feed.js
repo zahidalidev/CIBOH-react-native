@@ -374,7 +374,7 @@ function Feed(props) {
                     </ScrollView> : null}
 
                     {/* Favourites */}
-                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
+                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginBottom: 30, marginTop: RFPercentage(3)}} >
                         
                         <FlatList
                             data={favRecipeData}
