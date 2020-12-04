@@ -23,7 +23,10 @@ import Payment from './screens/Payment';
 import colors from './config/colors';
 
 const Stack = createDrawerNavigator();
+
+
 const Tab = createBottomTabNavigator();
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -54,7 +57,7 @@ export default function App() {
       {/* <Payment /> */}
         
       <NavigationContainer >
-        <Tab.Navigator >
+        <Tab.Navigator initialRouteName="Feed"  tabBarOptions={{style:{height:70}, activeTintColor: colors.primary, tabStyle: { backgroundColor:"white"}}}>
           <Tab.Screen
             
             name="Home"
