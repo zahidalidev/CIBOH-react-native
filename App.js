@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import Feed from './screens/Feed';
 import Home from './screens/Home';
@@ -27,13 +28,8 @@ function HomeStack() {
   return (
     
           <Stack.Navigator initialRouteName="Home" >
-
-            {/* Two Method to navigate to components */}
             <Stack.Screen name="Home">{(props) => <Home {...props} />}</Stack.Screen>
             <Stack.Screen name="Feed">{(props) => <Feed {...props} />}</Stack.Screen>
-            {/* <Stack.Screen name="ResultScreen">{(props) => <ResultScreen {...props} />}</Stack.Screen>
-            <Stack.Screen name="ReadTextScreen" options={{ title: "ReadTextScreen" }} component={ReadTextScreen} />
-            <Stack.Screen name="TranslateScreen" options={{ title: "TranslateScreen" }} component={TranslateScreen} /> */}
           </Stack.Navigator>
   );
 }
@@ -68,8 +64,35 @@ export default function App() {
         
       <NavigationContainer >
         <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeStack} />
-          <Tab.Screen name="Feed" component={Feed} />
+          <Tab.Screen
+            name="Home"
+            component={HomeStack}
+            options={{
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="settings"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Feed"
+            component={Feed}
+            options={{
+              tabBarLabel: 'Feed',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="settings"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
         </Tab.Navigator>
       </NavigationContainer>
     </>
