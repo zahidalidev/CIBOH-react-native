@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useRef, useCallback} from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, FlatList } from 'react-native';
 import Constants from 'expo-constants'
-import { useFonts } from 'expo-font'
 import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
 import { ImageBackground, Dimensions } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -123,13 +122,6 @@ const recipeData = [
 
 
 export default function Home() {
-
-    let [fontsLoaded] = useFonts({
-        'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
-        'AvianoFlareRegular': require('../assets/fonts/AvianoFlareRegular.otf'),
-        'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
-        });
-
     const [activeSlide, setActiveSlide] = useState(0); // current active slide card
     
     
@@ -153,12 +145,6 @@ export default function Home() {
         setIndex(roundIndex);
         }
     }, []);
-
-
-    if(!fontsLoaded) {
-        return null 
-    }
-
     return (
         <SafeAreaView  style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />

@@ -10,6 +10,7 @@ import Search from './screens/Search';
 import ShopingList from './screens/ShopingList';
 import ShopingList_1 from './screens/ShopingList_1';
 import Login from './screens/Login';
+import CreateRecipe from './screens/CreateRecipe';
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
       {/* <ShopingList_1 /> */}
       {/* <Search /> */}
       {/* <Login /> */}
+      <CreateRecipe />
     </View>
   );
 }

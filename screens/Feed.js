@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
-import { useFonts } from 'expo-font'
 import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import colors from '../config/colors';
@@ -243,11 +242,6 @@ const favRecipeData = [
 
 
 function Feed(props) {
-    let [fontsLoaded] = useFonts({
-        'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
-        'AvianoFlareRegular': require('../assets/fonts/AvianoFlareRegular.otf'),
-        'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
-        });
 
     const [currentCompoent, setCurrentCompoent] = useState('feedC')
 
@@ -298,11 +292,7 @@ function Feed(props) {
 
         setCurrentCompoent('favFeed')
     }
-    
-    if(!fontsLoaded) {
-        return null 
-    }
-
+ 
     let dummy = [1]
     return (
         <SafeAreaView  style={styles.container}>

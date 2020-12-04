@@ -21,8 +21,6 @@ const screenWidth = Dimensions.get('window').width;
 
 
 function Search(props) {
-   
-    
     const [value, setValue] = React.useState('');
     const [valueStatus, setValueStauts] = React.useState('');
     

@@ -65,35 +65,24 @@ const shopingData = [
 ]
 
 function ShopingList(props) {
-    let [fontsLoaded] = useFonts({
-    'ZermattFirst': require('../assets/fonts/ZermattFirst.otf'),
-    'AvianoFlareRegular': require('../assets/fonts/AvianoFlareRegular.otf'),
-    'sofiaprolight': require('../assets/fonts/sofiaprolight.otf'),
-    });
-
-
-    if(!fontsLoaded) {
-        return null 
-    }
-
     return (
         <SafeAreaView  style={styles.container}>
-                <StatusBar style="auto" backgroundColor="white" />
-                <ScrollView style={styles.scrollView}>
-                    <View style={styles.shopingContainer}>
-                        <Text style={{fontFamily: 'ZermattFirst', fontSize:28}} >Shopping List</Text>
-                        <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
-                            <FlatList
-                                data={shopingData}
-                                keyExtractor={item => item.id.toString()}     //has to be unique   
-                                renderItem={({item, index}) => <ShopingListCard screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
-                                horizontal={false}
-                                numColumns={1}
-                            />
-                        </ScrollView>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
+            <StatusBar style="auto" backgroundColor="white" />
+            <ScrollView style={styles.scrollView}>
+                <View style={styles.shopingContainer}>
+                    <Text style={{fontFamily: 'ZermattFirst', fontSize:28}} >Shopping List</Text>
+                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                        <FlatList
+                            data={shopingData}
+                            keyExtractor={item => item.id.toString()}     //has to be unique   
+                            renderItem={({item, index}) => <ShopingListCard screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            horizontal={false}
+                            numColumns={1}
+                        />
+                    </ScrollView>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
