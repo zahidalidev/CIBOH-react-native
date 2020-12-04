@@ -20,19 +20,10 @@ import CreateRecipe_3 from './screens/CreateRecipe_3';
 import AddIngrdient from './screens/AddIngrdient';
 import AddStep from './screens/AddStep';
 import Payment from './screens/Payment';
+import colors from './config/colors';
 
 const Stack = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
-
-function HomeStack() {
-  return (
-    
-          <Stack.Navigator initialRouteName="Home" >
-            <Stack.Screen name="Home">{(props) => <Home {...props} />}</Stack.Screen>
-            <Stack.Screen name="Feed">{(props) => <Feed {...props} />}</Stack.Screen>
-          </Stack.Navigator>
-  );
-}
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -63,16 +54,21 @@ export default function App() {
       {/* <Payment /> */}
         
       <NavigationContainer >
-        <Tab.Navigator>
+        <Tab.Navigator >
           <Tab.Screen
+            
             name="Home"
-            component={HomeStack}
+            component={Home}
             options={{
+              // padding: 50,
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
                   name="settings"
                   color={color}
+                  // selectionColor={colors.primary}
+                  
+                  
                   size={size}
                 />
               ),
@@ -82,6 +78,7 @@ export default function App() {
             name="Feed"
             component={Feed}
             options={{
+              // padding: 50,
               tabBarLabel: 'Feed',
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons

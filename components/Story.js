@@ -43,7 +43,7 @@ const data = [
 
 class HorizontalFlatListItem extends Component {
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         return(
             this.props.index === 0 ? 
             <>
