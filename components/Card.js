@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, ImageBackground, Dimensions, ColorPropType } fr
 import { useFonts } from 'expo-font'
 import colors from '../config/colors';
 import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
-
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -26,21 +26,21 @@ function Card({time, likes, picture, description, author}) {
                         <ImageBackground source={picture} style={styles.backgroundRecipt} >
                             <View style={styles.feedLikes} >
                                 <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>{likes}</Text>
+                                <Text style={{fontSize: RFPercentage(1.2),fontFamily: 'Roboto', color: 'white'}}>{likes}</Text>
                             </View>
                             <View style={styles.reciptTime} >
-                                <Text style={{fontFamily: 'Roboto', color: 'white'}}>{time}</Text>
+                                <Text style={{fontSize: RFPercentage(1.2),fontFamily: 'Roboto', color: 'white'}}>{time}</Text>
                             </View>
                         </ImageBackground>
                     </View>
-                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, marginTop:5, maxWidth: 170}} >
+                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), marginTop:5, maxWidth: RFPercentage(23)}} >
                         {description}
                     </Text>
                     <View style={{flexDirection: 'row'}} >
-                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170}} >
+                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), maxWidth: RFPercentage(23)}} >
                         by 
                     </Text>
-                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, maxWidth: 170, color: colors.primary}} >
+                    <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), maxWidth: RFPercentage(23), color: colors.primary}} >
                         {' '} {author}
                     </Text>
 
@@ -64,21 +64,21 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     backgroundRecipt: {
-        width:(screenWidth/2) - 50, height: 110, paddingLeft: 110,
+        width:RFPercentage(19), height: RFPercentage(13), paddingLeft: RFPercentage(13),
         paddingHorizontal: 15,
         marginTop: 20
     },
     feedLikes: {
         flexDirection: 'row',
         position: 'absolute',
-        bottom:5,
-        left:5
+        bottom:RFPercentage(0.1),
+        left:RFPercentage(0.6)
     },
     reciptTime: {
         flexDirection: 'row',
         position: 'absolute',
-        minWidth: 50,
-        bottom:5,
+        minWidth: RFPercentage(6),
+        bottom:RFPercentage(0.8),
         right:-3,
     },
 })

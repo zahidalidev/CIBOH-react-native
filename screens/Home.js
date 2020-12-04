@@ -5,6 +5,8 @@ import Constants from 'expo-constants'
 import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
 import { ImageBackground, Dimensions } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 import Story from '../components/Story';
 import HomeSlider from '../components/HomeSlider';
@@ -151,7 +153,7 @@ export default function Home() {
             
             {/* Stories */}
             <Story />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
                 <View style={styles.belowStoryContainer} >
 
                     {/* Recomended */}
@@ -162,7 +164,7 @@ export default function Home() {
                         <Text style={[styles.featureTitle, {fontFamily: 'ZermattFirst',}]} >
                             Featured Stories
                         </Text>
-                        <View  style={styles.featuredStories}>
+                        <View style={styles.featuredStories}>
                             <Text style={[styles.featureHeading, {fontFamily: 'AvianoFlareRegular'}]} >
                                 How to make {"\n\n"}
                                 home made ice-cream
@@ -187,7 +189,7 @@ export default function Home() {
                             <Text style={[styles.feedTitle, {fontFamily: 'ZermattFirst',}]} >
                                 Latest Feed
                             </Text>
-                            <Text style={{color: colors.primary, position:'absolute', right: "11%"}} >
+                            <Text style={{marginTop: RFPercentage(1), fontSize: RFPercentage(1.8) ,color: colors.primary, position:'absolute', right: "11%"}} >
                                 See All
                             </Text>
                         </View>
@@ -196,34 +198,34 @@ export default function Home() {
                             <View style={styles.feedCards} >
                                 <View style={{flexDirection: 'row', marginTop:15, marginBottom:-15}}>
                                     <MaterialIcons name="account-circle" color={colors.primary} size={15} />
-                                    <Text style={{fontFamily: 'ZermattFirst'}} >{feed[0].heading}</Text>
+                                    <Text style={{fontSize: RFPercentage(1.8),fontFamily: 'ZermattFirst'}} >{feed[0].heading}</Text>
                                 </View>
                                 <View>
                                     <ImageBackground source={feed[0].picture} style={styles.background} >
                                         <View style={styles.feedLikes} >
                                             <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                            <Text style={{fontFamily: 'Roboto', color: 'white'}}>{feed[0].likes}</Text>
+                                            <Text style={{fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white'}}>{feed[0].likes}</Text>
                                         </View>
                                     </ImageBackground>
                                 </View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, marginTop:5, maxWidth: 170}} >
+                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), marginTop:5, maxWidth: 170}} >
                                     {feed[0].description}
                                 </Text>
                             </View>
                             <View style={styles.feedCards2} >
                                 <View style={{flexDirection: 'row', marginTop:15, marginBottom:-15}}>
                                     <MaterialIcons name="account-circle" color={colors.primary} size={15} />
-                                    <Text style={{fontFamily: 'ZermattFirst'}} >{feed[1].heading}</Text>
+                                    <Text style={{fontSize: RFPercentage(1.8), fontFamily: 'ZermattFirst'}} >{feed[1].heading}</Text>
                                 </View>
                                 <View>
                                     <ImageBackground source={feed[1].picture} style={styles.background} >
                                         <View style={styles.feedLikes} >
                                             <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                            <Text style={{fontFamily: 'Roboto', color: 'white'}}>{feed[1].likes}</Text>
+                                            <Text style={{fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white'}}>{feed[1].likes}</Text>
                                         </View>
                                     </ImageBackground>
                                 </View>
-                                 <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:9, marginTop:5, maxWidth: 170}} >
+                                 <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), marginTop:5, maxWidth: 170}} >
                                     {feed[1].description}
                                 </Text>
                             </View>
@@ -236,14 +238,14 @@ export default function Home() {
                             <Text style={[styles.feedTitle, {fontFamily: 'ZermattFirst',}]} >
                                 Latest Recipe
                             </Text>
-                            <Text style={{color: colors.primary, position:'absolute', right: "11%"}} >
+                            <Text style={{marginTop: RFPercentage(1), fontSize: RFPercentage(1.8), color: colors.primary, position:'absolute', right: "11%"}} >
                                 See All
                             </Text>
                         </View>
 
                         {/* courasel */}
                         <View style={styles.screen}>
-                            <View style={{marginBottom: -15, marginLeft: -5, paddingRight:30}}>
+                            <View style={{marginBottom: -15, marginLeft: -5, paddingRight:RFPercentage(1.8)}}>
                                 <FlatList style={styles.flatList} 
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true} 
@@ -284,7 +286,7 @@ export default function Home() {
                                 <Image source={feedImg5} style={styles.talkBackground} />
                             </View>
                             <View style={{flexDirection: 'column', left: 15, marginTop: 20}}>
-                                <Text style={{fontFamily: 'ZermattFirst', fontSize:18}} >Lorem ipsum dolor sit amet</Text>
+                                <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(2.2)}} >Lorem ipsum dolor sit amet</Text>
                                 
                                 <View style={{flexDirection: 'row', marginTop: 10}}>
                                     <MaterialCommunityIcons style={{opacity:0.6}} name='check-circle-outline' color={colors.primary} size={20} />
@@ -310,26 +312,30 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight + 20,
-    flexDirection: 'column'
-  },
-  scrollView: {
-    // flex: 15,
-    // justifyContent: 'center',
-    // backgroundColor: 'pink',
-    marginHorizontal: 20,
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight + RFPercentage(2),
+        flexDirection: 'column'
     },
+    scrollView: {
+        // flex: 15,
+        // justifyContent: 'center',
+        // backgroundColor: 'pink',
+        width: "90%",
+
+        marginHorizontal: 20,
+    },
+
     belowStoryContainer: {
         marginTop: 30
     },
 
     featuredContainer: {
-        marginTop: 15
+        marginTop: 15,
+        // width: "100%"
     },
     
     featuredStories: {
@@ -340,7 +346,8 @@ const styles = StyleSheet.create({
     featureHeading: {
         // fontWeight: '900',
         padding: 25,
-        fontSize: 13,
+        fontSize: RFPercentage(1.7),
+        maxWidth: "70%"
     },
     
     featureImg: {
@@ -349,7 +356,7 @@ const styles = StyleSheet.create({
         top: -35
     },
     featureTitle: {
-        fontSize: 27,
+        fontSize: RFPercentage(3.3),
         fontWeight: '600',
         lineHeight: 27,
         letterSpacing: -0.5,
@@ -387,7 +394,7 @@ const styles = StyleSheet.create({
         // alignItems: 'flex-start'
     },
     feedTitle: {
-        fontSize: 27,
+        fontSize: RFPercentage(3.3),
         fontWeight: '600',
         lineHeight: 27,
         letterSpacing: -0.5,
@@ -395,7 +402,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     talkTitle: {
-        fontSize: 27,
+        fontSize: RFPercentage(3.3),
         fontWeight: '600',
         lineHeight: 27,
         letterSpacing: -0.5,
@@ -418,7 +425,7 @@ const styles = StyleSheet.create({
 
     background: {
         width:(screenWidth/2) - 30, height: 110, paddingLeft: 110,
-        paddingHorizontal: 15,
+        paddingHorizontal: 25,
         marginTop: 20
     },
     talkBackground: {
@@ -428,8 +435,8 @@ const styles = StyleSheet.create({
     feedLikes: {
         flexDirection: 'row',
         position: 'absolute',
-        bottom:5,
-        left:5
+        bottom:RFPercentage(1.1),
+        left:RFPercentage(1.1)
     },
 
     screen: {

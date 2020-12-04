@@ -3,6 +3,7 @@ import { View, ScrollView, ImageBackground, StyleSheet, Dimensions, Text, Platfo
 import { Constants } from 'expo';
 import { SliderBox } from "react-native-image-slider-box";
 import { useFonts } from 'expo-font'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
@@ -49,7 +50,7 @@ export default function HomeSlider() {
                 <View style={styles.sliderImg}>
                 </View>
                 <View style={styles.likes} >
-                  <MaterialCommunityIcons name='heart' size={15} color="white" />
+                  <MaterialCommunityIcons style={{marginTop:RFPercentage(0.2)}} name='heart' size={15} color="white" />
                   <Text style={[styles.subheadingTwo, {fontFamily: 'Roboto'}]}>100k</Text>
                 </View>
 
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     
   },
   sliderHeading: {
-    fontSize: 27,
+    fontSize: RFPercentage(3.2),
     fontWeight: '600',
     lineHeight: 27,
     letterSpacing: -0.5,
@@ -116,7 +117,8 @@ const styles = StyleSheet.create({
   screen: {
     // backgroundColor: "red",
     // width: SCREEN_WIDTH
-    flex: 1,
+    // flex: 1,
+    maxWidth: '90%',
     flexDirection: 'column',
     // backgroundColor: '#fff',
     // alignItems: 'center',
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     marginBottom: -5,
-    marginRight: '5%'
+    marginLeft: RFPercentage(5)
   },
   sliderImg: {
     position:'absolute',
@@ -153,8 +155,8 @@ const styles = StyleSheet.create({
   },
   likes: {
     flex: 1,
-    right: 40,
-    top: 160,
+    right: RFPercentage(6.5),
+    top: RFPercentage(20),
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'flex-start'
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
 
   headingOne: {
     color: 'white',
-    fontSize: 17,
+    fontSize: RFPercentage(2.2),
     fontWeight: '400',
     lineHeight: 22,
     letterSpacing: 0.02,
@@ -171,7 +173,7 @@ const styles = StyleSheet.create({
   },
   headingTwo: {
     color: 'white',
-    fontSize: 15,
+    fontSize: RFPercentage(2),
     fontWeight: '400',
     lineHeight: 22,
     letterSpacing: 0.02,
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
   },
   subheadingOne: {
     color: 'white',
-    fontSize: 12,
+    fontSize: RFPercentage(1.8),
     fontWeight: '400',
     lineHeight: 22,
     letterSpacing: 0.02,
@@ -190,7 +192,7 @@ const styles = StyleSheet.create({
   },
   subheadingTwo: {
     color: 'white',
-    fontSize: 12,
+    fontSize: RFPercentage(1.8),
     fontWeight: '400',
     lineHeight: 22,
     letterSpacing: 0.02,
