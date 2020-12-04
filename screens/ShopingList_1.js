@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { useFonts } from 'expo-font'
 import Constants from 'expo-constants';
 import {MaterialCommunityIcons} from "@expo/vector-icons"
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 import feedImg1 from "../assets/images/Rectangle8.png"
 import feedImg2 from "../assets/images/Rectangle9.png"
@@ -102,9 +103,9 @@ class ShopingList_1 extends Component{
                     <View style={styles.shopingContainer}>
                         <View style={{flexDirection: 'row', alignItems: 'center'}} >
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('ShopingList')} >
-                                <MaterialCommunityIcons style={{opacity:0.8}} name='chevron-left' color='black' size={35} />
+                                <MaterialCommunityIcons style={{opacity:0.8}} name='chevron-left' color='black' size={RFPercentage(4)} />
                             </TouchableOpacity>
-                            <Text style={{fontFamily: 'ZermattFirst', fontSize:28, left: 20}} >French Toast</Text>
+                            <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(3.5), left: 20}} >French Toast</Text>
                         </View>
 
                         <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >

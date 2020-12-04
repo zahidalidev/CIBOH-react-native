@@ -45,7 +45,7 @@ export default function HomeSlider() {
                 source={item.picture}
                 style={{width: SCREEN_WIDTH, height: height, flex: 1,
                   resizeMode: "cover",
-                  justifyContent: "center", backgroundColor: 'red' }}
+                  justifyContent: "center" }}
               >
                 <View style={styles.sliderImg}>
                 </View>

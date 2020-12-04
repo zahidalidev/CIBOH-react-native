@@ -385,9 +385,6 @@ function Feed(props) {
                         />
                     </ScrollView> : null}
 
-                    
-                    
-
             </ScrollView>
         </SafeAreaView>
     );
