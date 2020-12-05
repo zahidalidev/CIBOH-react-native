@@ -2,7 +2,7 @@
   "expo": {
     "name": "CIBOH",
     "slug": "CIBOH",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,13 +18,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.zahidalidev.CIBOH"
+      "bundleIdentifier": "com.zahidalidev.CIBOH",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.zahidalidev.CIBOH"
     },
     "web": {
       "favicon": "./assets/favicon.png"
