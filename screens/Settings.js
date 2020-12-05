@@ -12,7 +12,7 @@ import colors from '../config/colors';
 
 const screenWidth = Dimensions.get('window').width;
 
-function Settings(props) {
+function Settings({ navigation }) {
 
 
     return (
@@ -23,7 +23,7 @@ function Settings(props) {
 
                     {/* header */}
                     <View style={{ flexDirection: 'row', flex: 1, width: "95%", marginTop: RFPercentage(1) }} >
-                        <TouchableOpacity style={{ flexDirection: 'row', width: "100%", justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Search')} style={{ flexDirection: 'row', width: "100%", justifyContent: 'flex-start', alignItems: 'center' }}>
                             <MaterialCommunityIcons size={20} name="chevron-left" />
                             <Text style={{ fontWeight: '700', fontSize: RFPercentage(2) }} >Search</Text>
                         </TouchableOpacity>
@@ -213,6 +213,7 @@ function Settings(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: Constants.statusBarHeight,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',

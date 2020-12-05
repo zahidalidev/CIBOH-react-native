@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View, ScrollView, Text, Dimensions, TouchableOpacity, FlatList, Image, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
-import {MaterialCommunityIcons} from "@expo/vector-icons"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 import colors from '../config/colors';
@@ -26,7 +26,7 @@ const CAROUSEL_ITEM_WIDTH = SCREEN_WIDTH - CAROUSEL_VERTICAL_OUTPUT;
 
 
 const feeds = [
-    {   
+    {
         id: 1,
         picture: img,
         likes: '100k',
@@ -34,8 +34,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 2,
         picture: img,
         likes: '100k',
@@ -43,8 +43,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 3,
         picture: img,
         likes: '100k',
@@ -52,8 +52,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 4,
         picture: img,
         likes: '100k',
@@ -61,8 +61,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 5,
         picture: img,
         likes: '100k',
@@ -70,8 +70,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 6,
         picture: img,
         likes: '100k',
@@ -79,8 +79,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 7,
         picture: img,
         likes: '100k',
@@ -88,8 +88,8 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
-    {   
+    },
+    {
         id: 8,
         picture: img,
         likes: '100k',
@@ -97,77 +97,77 @@ const feeds = [
         heading: 'Fruit Saladd!!!',
         subHeading: 'yummmm'
 
-    },  
+    },
 ]
 const toturailsData = [
-    {   
+    {
         id: 1,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 2,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 3,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 4,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 5,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 6,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 7,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
-    {   
+    },
+    {
         id: 8,
         picture: img2,
         time: '10 mins',
         serve: '1 serve',
         hashTags: '#fries, #eggs',
         heading: 'Make yummilicious breakfast for yourself',
-    },  
+    },
 ]
 
 const favRecipeData = [
-    {   
+    {
         id: 1,
         picture: feedImg3,
         likes: '100k',
@@ -175,8 +175,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 2,
         picture: feedImg4,
         likes: '100k',
@@ -184,8 +184,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 3,
         picture: feedImg1,
         likes: '100k',
@@ -193,8 +193,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 4,
         picture: feedImg3,
         likes: '100k',
@@ -202,8 +202,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 5,
         picture: feedImg2,
         likes: '100k',
@@ -211,8 +211,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 6,
         picture: feedImg4,
         likes: '100k',
@@ -220,8 +220,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 7,
         picture: feedImg4,
         likes: '100k',
@@ -229,8 +229,8 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 8,
         picture: feedImg4,
         likes: '100k',
@@ -238,11 +238,11 @@ const favRecipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
+    },
 ]
 
 
-function Feed(props) {
+function Feed({ navigation }) {
 
     const [currentCompoent, setCurrentCompoent] = useState('feedC')
 
@@ -293,10 +293,10 @@ function Feed(props) {
 
         setCurrentCompoent('favFeed')
     }
- 
+
     let dummy = [1]
     return (
-        <SafeAreaView  style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
             <ScrollView style={styles.scrollView}>
 
@@ -304,86 +304,86 @@ function Feed(props) {
                 <View style={styles.feedContainer}>
 
                     {/* MIMI */}
-                        <View style={styles.feedCards3} >
-                            <View >
-                                <Text style={[styles.feedM, {fontFamily: 'ZermattFirst'}]} >M</Text>
+                    <View style={styles.feedCards3} >
+                        <View >
+                            <Text style={[styles.feedM, { fontFamily: 'ZermattFirst' }]} >M</Text>
+                        </View>
+                        <View style={{ flexDirection: 'column', left: 25, marginTop: Platform.OS === 'ios' ? RFPercentage(2) : null }}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Text style={{ color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(3.3) }} >mimi</Text>
+                                <MaterialCommunityIcons style={{ marginLeft: RFPercentage(14) }} size={35} color={colors.primary} name="dots-horizontal" />
                             </View>
-                            <View style={{flexDirection: 'column', left: 25, marginTop: Platform.OS==='ios' ? RFPercentage(2) : null}}>
-                                <View style={{flexDirection: 'row'}}>
-                                    <Text style={{color: colors.primary,fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(3.3)}} >mimi</Text>
-                                    <MaterialCommunityIcons style={{ marginLeft: RFPercentage(16)}} size={35} color={colors.primary} name="dots-horizontal" />
-                                </View>
-                                <View>
-                                    <Text style={{color: colors.tertiary, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.5)}} >Communtiy</Text>
-                                </View>
-                                
-                                <View>
-                                    <TouchableOpacity style={{maxWidth: 120, marginTop: 10, borderWidth: 1, borderColor:colors.primary, alignItems: 'center'}}>
-                                        <Text style={{color: colors.primary, padding: 10, fontSize: RFPercentage(1.5)}}>Edit Profile</Text>
-                                    </TouchableOpacity>
-                                </View>
+                            <View>
+                                <Text style={{ color: colors.tertiary, fontFamily: 'sofiaprolight', fontSize: RFPercentage(2.5) }} >Communtiy</Text>
+                            </View>
+
+                            <View>
+                                <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={{ maxWidth: 120, marginTop: 10, borderWidth: 1, borderColor: colors.primary, alignItems: 'center' }}>
+                                    <Text style={{ color: colors.primary, padding: 10, fontSize: RFPercentage(1.5) }}>Settings</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
+                </View>
 
-                    {/* Nav Bar */}
+                {/* Nav Bar */}
 
-                    <View style={{ backgroundColor: colors.feedBar, width: "100%", height: 65, flex: 1, flexDirection:'row', alignItems: 'center', justifyContent: 'center'}}>
-                        <View style={{ width: "33.33%", backgroundColor:feedBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
-                            <MaterialCommunityIcons onPress={() => handleFeed()} color={feedBarFont} name="menu" size={20} />
-                            <Text onPress={() => handleFeed()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:feedBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Feed</Text>
-                        </View>
-                        
-                        <View  style={{ width: "33.33%", backgroundColor:tutoBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
-                            <MaterialCommunityIcons onPress={()=>handleTutorial()} color={tutoBarFont} name="layers-triple-outline" size={20} />
-                            <Text onPress={()=>handleTutorial()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:tutoBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Tutorials</Text>
-                        </View>
-                        
-                        <View style={{ width: "33.33%", backgroundColor:favBarBack, padding: 22, Paddingeft: 20, flexDirection: 'row'}} >
-                            <MaterialCommunityIcons onPress={() => handleFav()} color={favBarFont} name="heart-outline" size={20} />
-                            <Text onPress={() => handleFav()} style={{fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.5), color:favBarFont, paddingLeft:RFPercentage(1), marginTop: Platform.OS === 'ios' ? RFPercentage(1) : null}}>Favorites</Text>
-                        </View>
+                <View style={{ width: "100%", height: 65, flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                    <View style={{ width: "33.33%", backgroundColor: feedBarBack, padding: RFPercentage(2.8), paddingLeft: RFPercentage(2), flexDirection: 'row' }} >
+                        <MaterialCommunityIcons onPress={() => handleFeed()} color={feedBarFont} name="menu" size={17} />
+                        <Text onPress={() => handleFeed()} style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.4), color: feedBarFont, paddingLeft: RFPercentage(0.3), marginTop: Platform.OS === 'ios' ? RFPercentage(0.8) : null }}>Feed</Text>
                     </View>
 
-                    {/* feed Component */}
-                    {currentCompoent === 'feedC' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
-                        <View style={{borderRadius: 2, borderStyle: 'dashed' ,marginBottom: -RFPercentage(26.8), left:5, alignItems: 'center', justifyContent: 'center',maxWidth:RFPercentage(24), maxHeight:RFPercentage(24), minHeight:RFPercentage(24), borderWidth: 2,borderColor: colors.primary}} >
-                            <MaterialCommunityIcons color={colors.primary} size={RFPercentage(10)} name="plus" />
-                            <Text style={{color: colors.primary}}>Add Photos</Text>
-                        </View>
+                    <View style={{ width: "33.33%", backgroundColor: tutoBarBack, padding: RFPercentage(2.8), paddingLeft: RFPercentage(2), flexDirection: 'row' }} >
+                        <MaterialCommunityIcons onPress={() => handleTutorial()} color={tutoBarFont} name="layers-triple-outline" size={17} />
+                        <Text onPress={() => handleTutorial()} style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.4), color: tutoBarFont, paddingLeft: RFPercentage(0.3), marginTop: Platform.OS === 'ios' ? RFPercentage(0.8) : null }}>Tutorials</Text>
+                    </View>
 
-                        <FlatList
-                            data={feeds}
-                            keyExtractor={item => item.id.toString()}     //has to be unique   
-                            renderItem={({item, index}) => <FeedCard lastChild={feeds.length}  id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
-                            horizontal={false}
-                            numColumns={2}
-                        />
-                    </ScrollView> : null}
+                    <View style={{ width: "33.33%", backgroundColor: favBarBack, padding: RFPercentage(2.8), paddingLeft: RFPercentage(2), flexDirection: 'row' }} >
+                        <MaterialCommunityIcons onPress={() => handleFav()} color={favBarFont} name="heart-outline" size={17} />
+                        <Text onPress={() => handleFav()} style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.4), color: favBarFont, paddingLeft: RFPercentage(0.3), marginTop: Platform.OS === 'ios' ? RFPercentage(0.8) : null }}>Favorites</Text>
+                    </View>
+                </View>
 
-                    {/* Tutorials */}
-                    {currentCompoent === 'tutFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: RFPercentage(3)}} >
-                        
-                        <FlatList
-                            data={toturailsData}
-                            keyExtractor={item => item.id.toString()}     //has to be unique   
-                            renderItem={({item, index}) => <ListCard screenWidth={screenWidth} picture={item.picture} heading={item.heading} hashTags={item.hashTags} time={item.time} serve={item.serve} />} //method to render the data in the way you want using styling u need
-                            horizontal={false}
-                            numColumns={1}
-                        />
-                    </ScrollView> : null}
+                {/* feed Component */}
+                {currentCompoent === 'feedC' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
+                    <View style={{ borderRadius: 2, borderStyle: 'dashed', marginBottom: -RFPercentage(26.8), left: 5, alignItems: 'center', justifyContent: 'center', maxWidth: RFPercentage(24), maxHeight: RFPercentage(24), minHeight: RFPercentage(24), borderWidth: 2, borderColor: colors.primary }} >
+                        <MaterialCommunityIcons color={colors.primary} size={RFPercentage(10)} name="plus" />
+                        <Text style={{ color: colors.primary }}>Add Photos</Text>
+                    </View>
 
-                    {/* Favourites */}
-                    {currentCompoent === 'favFeed' ? <ScrollView style={{flexDirection:'row', marginLeft: -5, marginBottom: 30, marginTop: RFPercentage(3)}} >
-                        
-                        <FlatList
-                            data={favRecipeData}
-                            keyExtractor={item => item.id.toString()}     //has to be unique   
-                            renderItem={({item, index}) => <FavCard author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
-                            horizontal={false}
-                            numColumns={2}
-                        />
-                    </ScrollView> : null}
+                    <FlatList
+                        data={feeds}
+                        keyExtractor={item => item.id.toString()}     //has to be unique   
+                        renderItem={({ item, index }) => <FeedCard lastChild={feeds.length} id={item.id} subHeading={item.subHeading} heading={item.heading} hashTags={item.hashTags} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                        horizontal={false}
+                        numColumns={2}
+                    />
+                </ScrollView> : null}
+
+                {/* Tutorials */}
+                {currentCompoent === 'tutFeed' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
+
+                    <FlatList
+                        data={toturailsData}
+                        keyExtractor={item => item.id.toString()}     //has to be unique   
+                        renderItem={({ item, index }) => <ListCard screenWidth={screenWidth} picture={item.picture} heading={item.heading} hashTags={item.hashTags} time={item.time} serve={item.serve} />} //method to render the data in the way you want using styling u need
+                        horizontal={false}
+                        numColumns={1}
+                    />
+                </ScrollView> : null}
+
+                {/* Favourites */}
+                {currentCompoent === 'favFeed' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginBottom: 30, marginTop: RFPercentage(3) }} >
+
+                    <FlatList
+                        data={favRecipeData}
+                        keyExtractor={item => item.id.toString()}     //has to be unique   
+                        renderItem={({ item, index }) => <FavCard author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                        horizontal={false}
+                        numColumns={2}
+                    />
+                </ScrollView> : null}
 
             </ScrollView>
         </SafeAreaView>
@@ -399,12 +399,12 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight + 20,
         flexDirection: 'column',
         // backgroundColor: 'red',
-        width:'100%'
+        width: '100%'
     },
     scrollView: {
         flex: 1,
         // justifyContent: 'center',
-        width:'95%',
+        width: '95%',
 
         // backgroundColor: 'pink',
         // marginHorizontal: 20,
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginTop: 10,
-        marginBottom:30,
+        marginBottom: 30,
         // left: 10,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
@@ -427,9 +427,9 @@ const styles = StyleSheet.create({
     feedM: {
         fontSize: RFPercentage(10),
         color: 'white',
-        padding: RFPercentage(3), paddingLeft: RFPercentage(4), paddingRight:RFPercentage(4),
-        backgroundColor:colors.secondary,
-        maxWidth:(screenWidth/2) -65, maxHeight: 140
+        padding: RFPercentage(3), paddingLeft: RFPercentage(4), paddingRight: RFPercentage(4),
+        backgroundColor: colors.secondary,
+        maxWidth: (screenWidth / 2) - 65, maxHeight: 140
     }
 })
 
