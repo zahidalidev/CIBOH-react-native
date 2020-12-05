@@ -11,7 +11,7 @@ import colors from '../config/colors';
 
 const screenWidth = Dimensions.get('window').width;
 
-function Payment(props) {
+function Payment({navigation}) {
 
     const [easyFront, setEasyFront] = useState('black')
     const [easyBack, setEasyBack] = useState('white')
@@ -95,11 +95,11 @@ function Payment(props) {
                             </View>
                             <View style={{marginTop: 10, flexDirection: 'row'}} >
                                 <MaterialCommunityIcons color={colors.primary} name="star" size={15} style={{marginTop: 3}} />
-                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Collect unlimited recipes from the web</Text>
+                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Cook recipes in optimized cooking mood</Text>
                             </View>
                             <View style={{marginTop: 10, flexDirection: 'row'}} >
                                 <MaterialCommunityIcons color={colors.primary} name="star" size={15} style={{marginTop: 3}} />
-                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Collect unlimited recipes from the web</Text>
+                                <Text style={{marginLeft: 15, fontFamily: 'sofiaprolight', fontSize:RFPercentage(2.1)}} >Access recipes across all your devices</Text>
                             </View>
                         </View>
 
@@ -115,7 +115,9 @@ function Payment(props) {
                         </View>
 
                         <View style={{width: '100%', marginTop:"5%", alignItems: 'center'}} > 
-                            <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2)}} >Show more plans</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('MorePlans')} >
+                                <Text style={{color: colors.primary, fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2)}} >Show more plans</Text>
+                            </TouchableOpacity>
                         </View>
 
                         <View style={{width: '100%', marginTop:"7%", alignItems: 'center'}} > 

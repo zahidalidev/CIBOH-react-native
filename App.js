@@ -21,6 +21,9 @@ import CreateRecipe_3 from './screens/CreateRecipe_3';
 import AddIngrdient from './screens/AddIngrdient';
 import AddStep from './screens/AddStep';
 import Payment from './screens/Payment';
+import MorePlans from './screens/MorePlans';
+import Settings from './screens/Settings';
+
 import colors from './config/colors';
 
 
@@ -144,7 +147,7 @@ export default function App() {
   return (
     <>
       <NavigationContainer >
-          <Stack.Navigator initialRouteName="Login">
+          <Stack.Navigator initialRouteName="Settings">
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="HomeTabs" component={HomeTabs} />
             <Stack.Screen name="ShopingList_1" component={ShopingList_1} />
@@ -154,6 +157,8 @@ export default function App() {
             <Stack.Screen name="AddIngrdient" component={AddIngrdient} />
             <Stack.Screen name="AddStep" component={AddStep} />
             <Stack.Screen name="Payment" component={Payment} />
+            <Stack.Screen name="MorePlans" component={MorePlans} />
+            <Stack.Screen name="Settings" component={Settings} />
           </Stack.Navigator>
       </NavigationContainer>
     </>
