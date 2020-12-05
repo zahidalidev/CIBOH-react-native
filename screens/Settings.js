@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
-import {MaterialCommunityIcons} from "@expo/vector-icons"
+import {Fontisto, MaterialCommunityIcons} from "@expo/vector-icons"
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Badge } from 'react-native-elements'
 
@@ -37,7 +37,7 @@ function Settings(props) {
 
                     <View style={{marginBottom: RFPercentage(1.5),borderBottomWidth:2, borderBottomColor:'#eae5e5', flexDirection: 'row', flex: 1, width:"100%", marginTop: RFPercentage(3)}} >
                         <View style={{flexDirection: 'row', width:"100%", justifyContent: 'flex-start', alignItems: 'center'}}>
-                            <Text style={{marginBottom: RFPercentage(1),marginLeft: RFPercentage(2), fontFamily: 'ZermattFirst', fontSize: RFPercentage(3.2)}} >Name</Text>
+                            <Text style={{marginBottom: RFPercentage(1),marginLeft: RFPercentage(2), fontFamily: 'ZermattFirst', fontSize: RFPercentage(3.4)}} >Name</Text>
                         </View>
                     </View>       
 
@@ -52,6 +52,24 @@ function Settings(props) {
                             </TouchableOpacity>
                         </View>
                     </View>     
+
+                    <View style={{marginBottom: RFPercentage(1.5),borderBottomWidth:2, borderBottomColor:'#eae5e5', flexDirection: 'row', flex: 1, width:"100%", marginTop: RFPercentage(3)}} >
+                        <View style={{flexDirection: 'row', width:"100%", justifyContent: 'flex-start', alignItems: 'center'}}>
+                            <Text style={{marginBottom: RFPercentage(1),marginLeft: RFPercentage(2), fontFamily: 'ZermattFirst', fontSize: RFPercentage(3.4)}} >System</Text>
+                        </View>
+                    </View>
+
+                    <View style={{paddingBottom: 10, marginBottom: RFPercentage(1.5),borderBottomWidth:2, borderBottomColor:'#eae5e5', flexDirection: 'row', flex: 1, width:"100%", marginTop: RFPercentage(0.5)}} >
+                        <View style={{marginLeft:RFPercentage(2) ,flexDirection: 'row'}}>
+                            <Fontisto size={25} name="world-o" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40)}}>
+                            <Text style={{marginBottom: RFPercentage(1),marginLeft: RFPercentage(1), fontSize: RFPercentage(2.8)}} >System</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+                            <MaterialCommunityIcons size={30} name="chevron-right" />
+                        </View>
+                    </View>
 
                 </View>
             </ScrollView>
