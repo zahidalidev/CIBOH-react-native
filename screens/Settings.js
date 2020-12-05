@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import Constants from 'expo-constants'
 import * as ImagePicker from 'expo-image-picker';
-import { Fontisto, MaterialCommunityIcons } from "@expo/vector-icons"
+import { Fontisto, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons"
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Badge } from 'react-native-elements'
 
@@ -71,7 +71,7 @@ function Settings(props) {
                             </View>
 
                             <View style={{ width: '100%', marginTop: RFPercentage(2) }} >
-                                <TouchableOpacity onPress={() => navigation.navigate('Payment')} style={{ borderRadius: 7, backgroundColor: colors.primary, alignItems: 'center' }} >
+                                <TouchableOpacity style={{ borderRadius: 7, backgroundColor: colors.primary, alignItems: 'center' }} >
                                     <Text style={{ fontFamily: 'sofiaprolight', padding: RFPercentage(1.5), paddingLeft: RFPercentage(3), paddingRight: RFPercentage(3), fontSize: RFPercentage(2.3), color: 'white' }} >Unlock Premium</Text>
                                 </TouchableOpacity>
                             </View>
@@ -122,7 +122,82 @@ function Settings(props) {
                             <Fontisto size={20} name="world-o" />
                         </View>
                         <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
-                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >System</Text>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Languages</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <MaterialCommunityIcons size={20} name="timer-sand" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Measurement System</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <MaterialCommunityIcons size={20} name="play-circle-outline" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Video Autoplay</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <MaterialCommunityIcons size={20} name="bell-outline" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Notifications</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+
+
+                    {/* More */}
+                    <View style={{ marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(3) }} >
+                        <View style={{ flexDirection: 'row', width: "100%", justifyContent: 'flex-start', alignItems: 'center' }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(2), fontFamily: 'ZermattFirst', fontSize: RFPercentage(2.9) }} >More</Text>
+                        </View>
+                    </View>
+
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <MaterialCommunityIcons size={20} name="file-delimited-outline" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Recipe creation FAQS</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <AntDesign size={20} name="infocirlceo" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >About us</Text>
+                        </View>
+                        <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
+                        </View>
+                    </View>
+                    <View style={{ paddingBottom: 10, marginBottom: RFPercentage(1.5), borderBottomWidth: 2, borderBottomColor: '#eae5e5', flexDirection: 'row', flex: 1, width: "100%", marginTop: RFPercentage(0.5) }} >
+                        <View style={{ marginLeft: RFPercentage(2), flexDirection: 'row' }}>
+                            <AntDesign size={20} name="like2" />
+                        </View>
+                        <View style={{ width: Platform.OS === 'ios' ? RFPercentage(45) : RFPercentage(40) }}>
+                            <Text style={{ marginBottom: RFPercentage(1), marginLeft: RFPercentage(1), fontSize: RFPercentage(2.1) }} >Recommend App</Text>
                         </View>
                         <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                             <MaterialCommunityIcons color={'#bcb8b8'} size={25} name="chevron-right" />
