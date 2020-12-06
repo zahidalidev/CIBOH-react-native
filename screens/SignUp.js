@@ -46,7 +46,7 @@ function SignUp({ navigation }) {
                         <View style={{ marginTop: "2%", flexDirection: 'row' }} >
                             <Text numberOfLines={1} style={{ marginLeft: RFPercentage(22), color: 'grey', fontFamily: 'sofiaprolight', fontSize: RFPercentage(1.7) }} >Already have an account?
                             </Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('Login')} >
                                 <Text style={{ fontWeight: 'bold', marginLeft: RFPercentage(0.5), color: colors.primary, fontFamily: 'sofiaprolight', fontSize: RFPercentage(1.8) }} >Login</Text>
                             </TouchableOpacity>
                         </View>
