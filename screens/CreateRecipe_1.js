@@ -39,7 +39,7 @@ function CreateRecipe_1({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
                 {/* header */}
                 <View style={{ backgroundColor: colors.secondary, width: "100%" }}>
                     <Text style={{ padding: 10, left: "2%", color: "white", maxWidth: "90%", fontFamily: "ZermattFirst", fontSize: RFPercentage(3) }} >Something’s Cooking Lets add a few more details</Text>

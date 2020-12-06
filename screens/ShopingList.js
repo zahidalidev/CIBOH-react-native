@@ -15,68 +15,68 @@ const screenWidth = Dimensions.get('window').width;
 
 
 const shopingData = [
-    {   
+    {
         id: 1,
         picture: feedImg3,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 2,
         picture: feedImg3,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 3,
         picture: feedImg1,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 4,
         picture: feedImg3,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 5,
         picture: feedImg2,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 6,
         picture: feedImg4,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 7,
         picture: feedImg4,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
-    {   
+    },
+    {
         id: 8,
         picture: feedImg4,
         heading: 'Frech Toast With Omlette',
         subHeading: '5 Ingrdients',
-    },  
+    },
 ]
 
-function ShopingList({navigation}) {
+function ShopingList({ navigation }) {
     return (
-        <SafeAreaView  style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
                 <View style={styles.shopingContainer}>
-                    <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(3.5)}} >Shopping List</Text>
-                    <ScrollView style={{flexDirection:'row', marginLeft: -5, marginTop: 20}} >
+                    <Text style={{ fontFamily: 'ZermattFirst', fontSize: RFPercentage(3.5) }} >Shopping List</Text>
+                    <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginTop: 20 }} >
                         <FlatList
                             data={shopingData}
                             keyExtractor={item => item.id.toString()}     //has to be unique   
-                            renderItem={({item, index}) => <ShopingListCard navigation={navigation} screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
+                            renderItem={({ item, index }) => <ShopingListCard navigation={navigation} screenWidth={screenWidth} id={index} heading={item.heading} subHeading={item.subHeading} picture={item.picture} />} //method to render the data in the way you want using styling u need
                             horizontal={false}
                             numColumns={1}
                         />
@@ -96,12 +96,12 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight + 20,
         flexDirection: 'column',
         // backgroundColor: 'red',
-        width:'100%'
+        width: '100%'
     },
     scrollView: {
         flex: 1,
         // justifyContent: 'center',
-        width:'95%',
+        width: '95%',
 
         // backgroundColor: 'pink',
         // marginHorizontal: 20,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginTop: 40,
-        marginBottom:30,
+        marginBottom: 30,
         // left: 10,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'

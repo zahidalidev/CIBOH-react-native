@@ -18,7 +18,7 @@ function Settings({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor={'white'} />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
                 <View style={styles.recipeContainer}>
 
                     {/* header */}

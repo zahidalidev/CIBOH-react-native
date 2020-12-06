@@ -298,7 +298,7 @@ function Feed({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
 
 
                 <View style={styles.feedContainer}>
@@ -346,7 +346,7 @@ function Feed({ navigation }) {
                 </View>
 
                 {/* feed Component */}
-                {currentCompoent === 'feedC' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
+                {currentCompoent === 'feedC' ? <ScrollView showsVerticalScrollIndicator={false} style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
                     <View style={{ borderRadius: 2, borderStyle: 'dashed', marginBottom: -RFPercentage(26.8), left: 5, alignItems: 'center', justifyContent: 'center', maxWidth: RFPercentage(24), maxHeight: RFPercentage(24), minHeight: RFPercentage(24), borderWidth: 2, borderColor: colors.primary }} >
                         <MaterialCommunityIcons color={colors.primary} size={RFPercentage(10)} name="plus" />
                         <Text style={{ color: colors.primary }}>Add Photos</Text>
@@ -362,7 +362,7 @@ function Feed({ navigation }) {
                 </ScrollView> : null}
 
                 {/* Tutorials */}
-                {currentCompoent === 'tutFeed' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
+                {currentCompoent === 'tutFeed' ? <ScrollView showsVerticalScrollIndicator={false} style={{ flexDirection: 'row', marginLeft: -5, marginTop: RFPercentage(3) }} >
 
                     <FlatList
                         data={toturailsData}
@@ -374,7 +374,7 @@ function Feed({ navigation }) {
                 </ScrollView> : null}
 
                 {/* Favourites */}
-                {currentCompoent === 'favFeed' ? <ScrollView style={{ flexDirection: 'row', marginLeft: -5, marginBottom: 30, marginTop: RFPercentage(3) }} >
+                {currentCompoent === 'favFeed' ? <ScrollView showsVerticalScrollIndicator={false} style={{ flexDirection: 'row', marginLeft: -5, marginBottom: 30, marginTop: RFPercentage(3) }} >
 
                     <FlatList
                         data={favRecipeData}
