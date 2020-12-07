@@ -12,50 +12,27 @@ const screenWidth = Dimensions.get('window').width;
 
 function AddStep({ navigation }) {
 
-    const [easyFront, setEasyFront] = useState('black')
-    const [easyBack, setEasyBack] = useState('white')
-
-    const [mediumFront, setMediumFront] = useState('white')
-    const [mediumBack, setMediumBack] = useState(colors.secondary)
-
-    const [hardFront, setHardFront] = useState('white')
-    const [hardBack, setHardBack] = useState(colors.secondary)
-
-    const handleEasy = () => {
-        setEasyFront('black')
-        setEasyBack('white')
-
-        setMediumFront('white')
-        setMediumBack(colors.secondary)
-
-        setHardFront('white')
-        setHardBack(colors.secondary)
-    }
-
-    const handleMedium = () => {
-        setEasyFront('white')
-        setEasyBack(colors.secondary)
-
-        setMediumFront('black')
-        setMediumBack('white')
-
-        setHardFront('white')
-        setHardBack(colors.secondary)
-    }
-
-    const handleHard = () => {
-        setEasyFront('white')
-        setEasyBack(colors.secondary)
-
-        setMediumFront('white')
-        setMediumBack(colors.secondary)
-
-        setHardFront('black')
-        setHardBack('white')
-    }
-
-
     const handleImage = async () => {
+        const result = await DocumentPicker.getDocumentAsync({});
+        console.log('result', result);
+        if (!result.cancelled) {
+            this.setState({
+                image: result,
+            });
+        }
+
+    }
+    const ingredients = async () => {
+        const result = await DocumentPicker.getDocumentAsync({});
+        console.log('result', result);
+        if (!result.cancelled) {
+            this.setState({
+                image: result,
+            });
+        }
+
+    }
+    const untensil = async () => {
         const result = await DocumentPicker.getDocumentAsync({});
         console.log('result', result);
         if (!result.cancelled) {
@@ -100,17 +77,17 @@ function AddStep({ navigation }) {
                     {/* Add ingredients */}
                     <View style={{ left: '5%', marginTop: "5%", width: "100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }} >
                         <Text style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5) }} >Ingrdients Used</Text>
-                        <View style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius: 2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)' }} >
+                        <TouchableOpacity onPress={() => ingredients()} style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius: 2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)' }} >
                             <Text style={{ opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize: RFPercentage(2.5), color: colors.primary }}>Add Ingredients</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     {/* Steps */}
                     <View style={{ left: '5%', marginTop: "5%", width: "100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }} >
                         <Text style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(2.5) }} >Utensils Used</Text>
-                        <View style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius: 2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)' }} >
+                        <TouchableOpacity onPress={() => untensil()} style={{ alignItems: 'center', borderColor: colors.tertiary, borderWidth: 2, borderStyle: 'dashed', borderRadius: 2, marginTop: 25, width: '100%', backgroundColor: 'rgba(249, 242, 222, 0.3)' }} >
                             <Text style={{ opacity: 1, padding: 20, fontFamily: 'ZermattFirst', fontSize: RFPercentage(2.5), color: colors.primary }}>Add a Untensil</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     {/* Next Button */}
