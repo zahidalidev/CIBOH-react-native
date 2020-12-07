@@ -3,7 +3,7 @@ import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, Touchable
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 import logo from "../assets/images/loginLogo.png";
 import colors from '../config/colors';
@@ -58,18 +58,24 @@ function SignUp({ navigation }) {
                         </TouchableOpacity>
                     </View>
 
-                    {/* welcome */}
-                    <View style={{ marginBottom: RFPercentage(5), width: "100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                    {/* Sign Uo */}
+                    <View style={{ marginTop: RFPercentage(1), marginBottom: RFPercentage(5), width: "100%", flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
                         <View>
-                            <Text style={{ fontSize: RFPercentage(2.5), color: colors.primary, fontFamily: 'ZermattFirst' }} >Sign Up using Facebook/Google</Text>
+                            <Text style={{ fontSize: RFPercentage(2.5), color: colors.primary, fontFamily: 'ZermattFirst' }} >Sign Up With {Platform.OS === 'android' ? 'Google' : 'Apple'}/Facebook?</Text>
                         </View>
                         <View style={{ flexDirection: 'row', width: "100%" }}>
-                            <TouchableOpacity onPress={() => console.log('facebook')} style={{ marginLeft: RFPercentage(1.5), width: '45%', backgroundColor: '#38529a', alignItems: 'center', marginTop: RFPercentage(2), marginBottom: RFPercentage(3) }} >
+                            <TouchableOpacity onPress={() => console.log('facebook')} style={{ marginLeft: RFPercentage(1.5), width: '45%', backgroundColor: '#3b5999', alignItems: 'center', marginTop: RFPercentage(2), marginBottom: RFPercentage(3) }} >
                                 <Text style={{ fontFamily: 'AvianoFlareRegular', padding: 11, fontSize: RFPercentage(1.7), color: 'white' }} >Facebook</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => console.log('google')} style={{ marginLeft: RFPercentage(1.5), width: '45%', backgroundColor: '#4285f4', alignItems: 'center', marginTop: RFPercentage(2), marginBottom: RFPercentage(3) }} >
-                                <Text style={{ fontFamily: 'AvianoFlareRegular', padding: 11, fontSize: RFPercentage(1.7), color: 'white' }} >Google</Text>
-                            </TouchableOpacity>
+                            {Platform.OS === 'android' ?
+                                <TouchableOpacity onPress={() => console.log('google')} style={{ marginLeft: RFPercentage(1.5), width: '45%', backgroundColor: '#4081ec', alignItems: 'center', marginTop: RFPercentage(2), marginBottom: RFPercentage(3) }} >
+                                    <Text style={{ fontFamily: 'AvianoFlareRegular', padding: 11, fontSize: RFPercentage(1.7), color: 'white' }} >Google</Text>
+                                </TouchableOpacity> :
+                                <TouchableOpacity onPress={() => console.log('google')} style={{ justifyContent: 'center', flexDirection: 'row', borderColor: 'black', borderWidth: 1, marginLeft: RFPercentage(1.5), width: '45%', backgroundColor: 'white', alignItems: 'center', marginTop: RFPercentage(2), marginBottom: RFPercentage(3) }} >
+                                    <MaterialCommunityIcons style={{ paddingLeft: 10 }} name='apple' color="black" size={RFPercentage(2.5)} />
+                                    <Text style={{ fontFamily: 'AvianoFlareRegular', padding: 11, paddingLeft: 1, fontSize: RFPercentage(1.7), color: 'black' }} >Apple</Text>
+                                </TouchableOpacity>
+                            }
                         </View>
 
                     </View>
