@@ -24,6 +24,7 @@ import Payment from './screens/Payment';
 import MorePlans from './screens/MorePlans';
 import Settings from './screens/Settings';
 import SignUp from './screens/SignUp';
+import Detail from './screens/Detail';
 
 import colors from './config/colors';
 
@@ -151,7 +152,7 @@ export default function App() {
         <Stack.Navigator
           drawerStyle={{
             width: "0%"
-          }} initialRouteName="SignUp">
+          }} initialRouteName="Detail">
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="HomeTabs" component={HomeTabs} />
@@ -164,6 +165,7 @@ export default function App() {
           <Stack.Screen name="Payment" component={Payment} />
           <Stack.Screen name="MorePlans" component={MorePlans} />
           <Stack.Screen name="Settings" component={Settings} />
+          <Stack.Screen name="Detail" component={Detail} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
