@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState, useRef, useCallback} from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, FlatList, Platform } from 'react-native';
 import Constants from 'expo-constants'
-import {MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons"
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons"
 import { ImageBackground, Dimensions } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -46,9 +46,9 @@ const feed = [
     },
 ]
 
-    
+
 const recipeData = [
-    {   
+    {
         id: 1,
         picture: feedImg3,
         likes: '100k',
@@ -56,8 +56,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 2,
         picture: feedImg4,
         likes: '100k',
@@ -65,8 +65,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 3,
         picture: feedImg1,
         likes: '100k',
@@ -74,8 +74,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 4,
         picture: feedImg3,
         likes: '100k',
@@ -83,8 +83,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 5,
         picture: feedImg2,
         likes: '100k',
@@ -92,8 +92,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 6,
         picture: feedImg4,
         likes: '100k',
@@ -101,8 +101,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 7,
         picture: feedImg4,
         likes: '100k',
@@ -110,8 +110,8 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
-    {   
+    },
+    {
         id: 8,
         picture: feedImg4,
         likes: '100k',
@@ -119,14 +119,14 @@ const recipeData = [
         description: 'Tasty Strawberry icecream',
         author: 'Christy Obioha'
 
-    },  
+    },
 ]
 
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [activeSlide, setActiveSlide] = useState(0); // current active slide card
-    
-    
+
+
     const [index, setIndex] = useState(0);
     const indexRef = useRef(index);
     indexRef.current = index;
@@ -144,13 +144,13 @@ export default function Home() {
         const isNoMansLand = 0.4 < distance;
 
         if (roundIndex !== indexRef.current && !isNoMansLand) {
-        setIndex(roundIndex);
+            setIndex(roundIndex);
         }
     }, []);
     return (
-        <SafeAreaView  style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar style="auto" backgroundColor="white" />
-            
+
             {/* Stories */}
             <Story />
             <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
@@ -161,22 +161,22 @@ export default function Home() {
 
                     {/* Featured Stories */}
                     <View style={styles.featuredContainer}>
-                        <Text style={[styles.featureTitle, {fontFamily: 'ZermattFirst',}]} >
+                        <Text style={[styles.featureTitle, { fontFamily: 'ZermattFirst', }]} >
                             Featured Stories
                         </Text>
                         <View style={styles.featuredStories}>
-                            <Text style={[styles.featureHeading, {fontFamily: 'AvianoFlareRegular'}]} >
+                            <Text style={[styles.featureHeading, { fontFamily: 'AvianoFlareRegular' }]} >
                                 How to make {"\n\n"}
                                 home made ice-cream
                             </Text>
                             <Image style={styles.featureImg} source={featureImg} />
                             <View style={styles.subHeading} >
-                                <Text style={{fontFamily: 'sofiaprolight', color: colors.primary}} >
+                                <Text style={{ fontFamily: 'sofiaprolight', color: colors.primary }} >
                                     Lisa-Krisin Erdt
                                 </Text>
                                 <View style={styles.likes} >
                                     <MaterialCommunityIcons name="heart" color={colors.primary} size={20} />
-                                    <Text style={{ color: colors.primary, left: 7}} >275</Text>
+                                    <Text style={{ color: colors.primary, left: 7 }} >275</Text>
                                 </View>
                             </View>
                         </View>
@@ -185,47 +185,47 @@ export default function Home() {
                     {/* latest Feed */}
 
                     <View style={styles.feedContainer}>
-                        <View style={{flexDirection: 'row'}} >
-                            <Text style={[styles.feedTitle, {fontFamily: 'ZermattFirst',}]} >
+                        <View style={{ flexDirection: 'row' }} >
+                            <Text style={[styles.feedTitle, { fontFamily: 'ZermattFirst', }]} >
                                 Latest Feed
                             </Text>
-                            <Text style={{marginTop: RFPercentage(1), fontSize: RFPercentage(1.8) ,color: colors.primary, position:'absolute', right: "11%"}} >
+                            <Text style={{ marginTop: RFPercentage(1), fontSize: RFPercentage(1.8), color: colors.primary, position: 'absolute', right: "11%" }} >
                                 See All
                             </Text>
                         </View>
-                        
-                        <View style={{flexDirection:'row'}} >
+
+                        <View style={{ flexDirection: 'row' }} >
                             <View style={styles.feedCards} >
-                                <View style={{flexDirection: 'row', marginTop:15, marginBottom:-15}}>
+                                <View style={{ flexDirection: 'row', marginTop: 15, marginBottom: -15 }}>
                                     <MaterialIcons name="account-circle" color={colors.primary} size={15} />
-                                    <Text style={{fontSize: RFPercentage(1.8),fontFamily: 'ZermattFirst'}} >{feed[0].heading}</Text>
+                                    <Text style={{ fontSize: RFPercentage(1.8), fontFamily: 'ZermattFirst' }} >{feed[0].heading}</Text>
                                 </View>
                                 <View>
                                     <ImageBackground source={feed[0].picture} style={styles.background} >
                                         <View style={styles.feedLikes} >
                                             <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                            <Text style={{fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white'}}>{feed[0].likes}</Text>
+                                            <Text style={{ fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white' }}>{feed[0].likes}</Text>
                                         </View>
                                     </ImageBackground>
                                 </View>
-                                <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), marginTop:5, maxWidth: 170}} >
+                                <Text style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.1), marginTop: 5, maxWidth: 170 }} >
                                     {feed[0].description}
                                 </Text>
                             </View>
                             <View style={styles.feedCards2} >
-                                <View style={{flexDirection: 'row', marginTop:15, marginBottom:-15}}>
+                                <View style={{ flexDirection: 'row', marginTop: 15, marginBottom: -15 }}>
                                     <MaterialIcons name="account-circle" color={colors.primary} size={15} />
-                                    <Text style={{fontSize: RFPercentage(1.8), fontFamily: 'ZermattFirst'}} >{feed[1].heading}</Text>
+                                    <Text style={{ fontSize: RFPercentage(1.8), fontFamily: 'ZermattFirst' }} >{feed[1].heading}</Text>
                                 </View>
                                 <View>
                                     <ImageBackground source={feed[1].picture} style={styles.background} >
                                         <View style={styles.feedLikes} >
                                             <MaterialCommunityIcons name='heart' size={15} color="white" />
-                                            <Text style={{fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white'}}>{feed[1].likes}</Text>
+                                            <Text style={{ fontSize: RFPercentage(1.7), fontFamily: 'Roboto', color: 'white' }}>{feed[1].likes}</Text>
                                         </View>
                                     </ImageBackground>
                                 </View>
-                                 <Text style={{fontFamily: 'AvianoFlareRegular', fontSize:RFPercentage(1.1), marginTop:5, maxWidth: 170}} >
+                                <Text style={{ fontFamily: 'AvianoFlareRegular', fontSize: RFPercentage(1.1), marginTop: 5, maxWidth: 170 }} >
                                     {feed[1].description}
                                 </Text>
                             </View>
@@ -234,24 +234,24 @@ export default function Home() {
 
                     {/* Latest Recipe */}
                     <View style={styles.feedContainer}>
-                        <View style={{flexDirection: 'row'}} >
-                            <Text style={[styles.feedTitle, {fontFamily: 'ZermattFirst',}]} >
+                        <View style={{ flexDirection: 'row' }} >
+                            <Text style={[styles.feedTitle, { fontFamily: 'ZermattFirst', }]} >
                                 Latest Recipe
                             </Text>
-                            <Text style={{marginTop: RFPercentage(1), fontSize: RFPercentage(1.8), color: colors.primary, position:'absolute', right: "11%"}} >
+                            <Text style={{ marginTop: RFPercentage(1), fontSize: RFPercentage(1.8), color: colors.primary, position: 'absolute', right: "11%" }} >
                                 See All
                             </Text>
                         </View>
 
                         {/* courasel */}
                         <View style={styles.screen}>
-                            <View style={{marginBottom: -15, marginLeft: -5, paddingRight:RFPercentage(1.8)}}>
-                                <FlatList style={styles.flatList} 
+                            <View style={{ marginBottom: -15, marginLeft: -5, paddingRight: RFPercentage(1.8) }}>
+                                <FlatList style={styles.flatList}
                                     showsHorizontalScrollIndicator={false}
-                                    horizontal={true} 
+                                    horizontal={true}
                                     data={recipeData}
                                     keyExtractor={item => item.id.toString()}
-                                    renderItem={({item, index}) => <Card author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />}
+                                    renderItem={({ item, index }) => <Card navigation={navigation} author={item.author} description={item.description} time={item.time} likes={item.likes} picture={item.picture} />}
                                     pagingEnabled
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
@@ -261,11 +261,11 @@ export default function Home() {
                             </View>
                             <View style={styles.dotsPgae} >
                                 <Pagination
-                                dotsLength={parseInt(recipeData.length/2.5)}
-                                activeDotIndex={index}
-                                inactiveDotStyle={{width: 12, height: 12, borderRadius: 50}}
-                                containerStyle={{alignItems: 'center', justifyContent: 'center'}}
-                                dotStyle={{backgroundColor: 'grey', margin: -5}}
+                                    dotsLength={parseInt(recipeData.length / 2.5)}
+                                    activeDotIndex={index}
+                                    inactiveDotStyle={{ width: 12, height: 12, borderRadius: 50 }}
+                                    containerStyle={{ alignItems: 'center', justifyContent: 'center' }}
+                                    dotStyle={{ backgroundColor: 'grey', margin: -5 }}
                                 />
                             </View>
                         </View>
@@ -275,30 +275,30 @@ export default function Home() {
                     {/* Lets Talk */}
 
                     <View style={styles.talkContainer}>
-                        <View style={{flexDirection: 'row'}} >
-                            <Text style={[styles.talkTitle, {fontFamily: 'ZermattFirst',}]} >
+                        <View style={{ flexDirection: 'row' }} >
+                            <Text style={[styles.talkTitle, { fontFamily: 'ZermattFirst', }]} >
                                 Lets Talk
                             </Text>
                         </View>
-                        
+
                         <View style={styles.feedCards3} >
                             <View>
                                 <Image source={feedImg5} style={styles.talkBackground} />
                             </View>
-                            <View style={{flexDirection: 'column', left: 15, marginTop: 20}}>
-                                <Text style={{fontFamily: 'ZermattFirst', fontSize:RFPercentage(2.2)}} >Lorem ipsum dolor sit amet</Text>
-                                
-                                <View style={{flexDirection: 'row', marginTop: 10}}>
-                                    <MaterialCommunityIcons style={{opacity:0.6}} name='check-circle-outline' color={colors.primary} size={20} />
-                                    <Text style={{color: colors.primary, margin: 3, opacity:0.6}} >Yes</Text>
+                            <View style={{ flexDirection: 'column', left: 15, marginTop: 20 }}>
+                                <Text style={{ fontFamily: 'ZermattFirst', fontSize: RFPercentage(2.2) }} >Lorem ipsum dolor sit amet</Text>
+
+                                <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                                    <MaterialCommunityIcons style={{ opacity: 0.6 }} name='check-circle-outline' color={colors.primary} size={20} />
+                                    <Text style={{ color: colors.primary, margin: 3, opacity: 0.6 }} >Yes</Text>
                                 </View>
-                                <View style={{flexDirection: 'row'}}>
-                                    <MaterialCommunityIcons style={{opacity:0.4}} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
-                                    <Text style={{color: 'grey', margin: 3, opacity:0.4}} >No</Text>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <MaterialCommunityIcons style={{ opacity: 0.4 }} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
+                                    <Text style={{ color: 'grey', margin: 3, opacity: 0.4 }} >No</Text>
                                 </View>
-                                <View style={{flexDirection: 'row'}}>
-                                    <MaterialCommunityIcons style={{opacity:0.4}} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
-                                    <Text style={{color: 'grey', margin: 3, opacity:0.4}} >Maybe</Text>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <MaterialCommunityIcons style={{ opacity: 0.4 }} name='checkbox-blank-circle-outline' color={'grey'} size={20} />
+                                    <Text style={{ color: 'grey', margin: 3, opacity: 0.4 }} >Maybe</Text>
                                 </View>
                             </View>
                         </View>
@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
         // width: "100%"
     },
-    
+
     featuredStories: {
         flex: 1,
         backgroundColor: colors.secondary,
@@ -350,10 +350,10 @@ const styles = StyleSheet.create({
         fontSize: RFPercentage(1.7),
         maxWidth: "70%"
     },
-    
+
     featureImg: {
         left: 17,
-        alignSelf: 'flex-end', 
+        alignSelf: 'flex-end',
         top: -35
     },
     featureTitle: {
@@ -390,7 +390,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginTop: -10,
-        marginBottom:30
+        marginBottom: 30
         // justifyContent: 'center',
         // alignItems: 'flex-start'
     },
@@ -425,19 +425,19 @@ const styles = StyleSheet.create({
     },
 
     background: {
-        width:(screenWidth/2) - 30, height: 110, paddingLeft: 110,
+        width: (screenWidth / 2) - 30, height: 110, paddingLeft: 110,
         paddingHorizontal: 25,
         marginTop: 20
     },
     talkBackground: {
-        width:(screenWidth/2) - 80, height: 140, paddingLeft: 110,
+        width: (screenWidth / 2) - 80, height: 140, paddingLeft: 110,
     },
 
     feedLikes: {
         flexDirection: 'row',
         position: 'absolute',
-        bottom:RFPercentage(1.1),
-        left:RFPercentage(1.1)
+        bottom: RFPercentage(1.1),
+        left: RFPercentage(1.1)
     },
 
     screen: {
