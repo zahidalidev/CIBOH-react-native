@@ -6,6 +6,7 @@ import {
     Image,
     TouchableOpacity,
 } from 'react-native';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 //import all the components we are going to use.
 
 export default class StarRating extends Component {
@@ -53,12 +54,12 @@ const styles = StyleSheet.create({
     childView: {
         justifyContent: 'center',
         flexDirection: 'row',
-        marginTop: 30,
+        marginTop: RFPercentage(3),
     },
 
     StarImage: {
-        width: 40,
-        height: 40,
+        width: RFPercentage(4),
+        height: RFPercentage(4),
         resizeMode: 'cover',
     },
 
